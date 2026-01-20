@@ -1,0 +1,119 @@
+# Bayesian Networks Configuration
+# Comprehensive configuration for inference, learning, visualization, and validation
+
+# ============================================================
+# General Settings
+# ============================================================
+[general]
+seed = 42
+output_dir = "output"
+log_level = "INFO"
+
+# ============================================================
+# True Model Parameters (Ground Truth)
+# ============================================================
+[model]
+# Prior probability of cloudy
+p_cloudy = 0.5
+
+# P(Rain=True | Cloudy) - indexed by cloudy state [not_cloudy, cloudy]
+p_rain_given_cloudy = [0.2, 0.8]
+
+# P(Sprinkler=On | Cloudy) - indexed by cloudy state
+p_sprinkler_given_cloudy = [0.5, 0.1]
+
+# P(WetGrass=True | Sprinkler, Rain) - 2x2 matrix [sprinkler_off/on, rain_off/on]
+p_wet_given_sprinkler_rain = [[0.0, 0.9], [0.9, 0.99]]
+
+# ============================================================
+# Inference Settings
+# ============================================================
+[inference]
+iterations = 10
+showprogress = false
+
+# ============================================================
+# Inference Scenarios
+# ============================================================
+[[scenarios]]
+name = "dry_grass"
+description = "Observing dry grass"
+evidence = { wet_grass = [1.0, 0.0] }
+model = "basic"
+variables = ["clouded", "rain", "sprinkler"]
+
+[[scenarios]]
+name = "wet_grass"
+description = "Observing wet grass"
+evidence = { wet_grass = [0.0, 1.0] }
+model = "basic"
+variables = ["clouded", "rain", "sprinkler"]
+
+[[scenarios]]
+name = "sprinkler_off_raining"
+description = "Sprinkler off and raining"
+evidence = { wet_grass_data = "missing", sprinkler_data = [1.0, 0.0], rain_data = [0.0, 1.0], clouded_data = "missing" }
+model = "extended"
+variables = ["clouded", "rain", "sprinkler", "wet_grass"]
+
+[[scenarios]]
+name = "cloudy_observed"
+description = "Observing cloudy weather"
+evidence = { wet_grass_data = "missing", sprinkler_data = "missing", rain_data = "missing", clouded_data = [0.0, 1.0] }
+model = "extended"
+variables = ["clouded", "rain", "sprinkler", "wet_grass"]
+
+# ============================================================
+# Learning Settings
+# ============================================================
+[learning]
+n_samples = 10000
+learning_iterations = 5
+limit_stack_depth = 500
+dirichlet_prior_strength = 1.0
+
+# ============================================================
+# Visualization Settings
+# ============================================================
+[visualization]
+theme = "default"
+colorscheme = "viridis"
+dpi = 150
+font_size = 10
+title_font_size = 12
+show_values = true          # Annotate probability values on plots
+figure_format = "png"       # png, pdf, svg
+bar_color = "#4C72B0"
+bar_edge_color = "#2E4057"
+
+# Plot sizes (width, height)
+posterior_plot_size = [350, 300]
+cpt_heatmap_size = [350, 350]
+dashboard_size = [1400, 900]
+convergence_plot_size = [800, 400]
+
+# ============================================================
+# Validation Settings
+# ============================================================
+[validation]
+enabled = true
+# Maximum allowed absolute error between learned and true CPT
+max_cpt_error = 0.15
+# Minimum posterior confidence for primary inference
+min_posterior_confidence = 0.6
+# Check convergence
+check_convergence = true
+
+# ============================================================
+# Reporting Settings
+# ============================================================
+[reporting]
+generate_text_report = true
+generate_json_summary = true
+generate_dashboard = true
+verbose_logging = true
+
+# Subdirectories
+figures_subdir = "figures"
+logs_subdir = "logs"
+data_subdir = "data"

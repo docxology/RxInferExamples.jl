@@ -1,21 +1,53 @@
-# Julia Modules
+# Julia Support Modules
 
 Reusable Julia modules for RxInferExamples.jl support utilities.
 
-## Modules
+## Structure
 
-| Module | Purpose |
-|--------|---------|
-| `CommandUtils.jl` | Shell command execution and argument parsing |
-| `EnvironmentSetup.jl` | Environment configuration and package management |
-| `NotebookConversion.jl` | Jupyter notebook to Julia script conversion |
+```
+julia/
+├── Support.jl           # Umbrella module
+├── utils/
+│   ├── CommandUtils.jl  # Shell command execution
+│   ├── FileUtils.jl     # File system operations
+│   └── ConfigUtils.jl   # TOML configuration handling
+├── statistics/
+│   ├── AnalysisUtils.jl # Statistical metrics (RMSE, MAE, VAF)
+│   └── ValidationUtils.jl # Validation framework
+├── visualization/
+│   ├── PlottingUtils.jl # Plotting helpers
+│   └── AnimationUtils.jl # Animation creation
+├── logging/
+│   ├── LoggingUtils.jl  # Logging infrastructure
+│   └── ReportingUtils.jl # Report generation
+├── environment/
+│   ├── EnvironmentSetup.jl # Environment configuration
+│   └── NotebookConversion.jl # Notebook to script conversion
+└── README.md
+```
 
 ## Usage
 
-```julia
-include("support/src/julia/NotebookConversion.jl")
-using .NotebookConversion
+### Load All Modules
 
-# Convert a notebook
-convert_notebook("example.ipynb", "example.jl")
+```julia
+include("support/src/julia/Support.jl")
+using .Support
 ```
+
+### Load Individual Submodules
+
+```julia
+include("support/src/julia/utils/FileUtils.jl")
+using .FileUtils
+```
+
+## Module Categories
+
+| Category | Modules | Purpose |
+|----------|---------|---------|
+| **utils** | CommandUtils, FileUtils, ConfigUtils | General utilities |
+| **statistics** | AnalysisUtils, ValidationUtils | Statistical analysis |
+| **visualization** | PlottingUtils, AnimationUtils | Plotting and animation |
+| **logging** | LoggingUtils, ReportingUtils | Logging infrastructure |
+| **environment** | EnvironmentSetup, NotebookConversion | Environment management |

@@ -19,74 +19,67 @@ support/
 ├── AGENTS.md           # Agent signposting
 ├── README.md           # This file
 ├── scripts/            # Thin orchestrators (CLI, workflow)
-│   ├── gnn/            # → uses src/gnn_utils.py
-│   ├── notebooks/      # → uses src/NotebookConversion.jl
-│   ├── server/         # → uses src/server_utils.py
-│   └── setup/          # → uses src/CommandUtils.jl, EnvironmentSetup.jl
+│   ├── gnn/            # → uses src/python/integration/gnn_utils.py
+│   ├── notebooks/      # → uses src/julia/environment/NotebookConversion.jl
+│   ├── server/         # → uses src/python/integration/server_utils.py
+│   └── setup/          # → uses src/julia/utils/, environment/
 └── src/                # Core modules (testable, reusable)
-    ├── NotebookConversion.jl
-    ├── CommandUtils.jl
-    ├── EnvironmentSetup.jl
-    ├── gnn_utils.py
-    └── server_utils.py
+    ├── julia/
+    │   ├── Support.jl  # Umbrella module
+    │   ├── utils/      # CommandUtils, FileUtils, ConfigUtils
+    │   ├── statistics/ # AnalysisUtils, ValidationUtils
+    │   ├── visualization/ # PlottingUtils, AnimationUtils
+    │   ├── logging/    # LoggingUtils, ReportingUtils
+    │   └── environment/ # EnvironmentSetup, NotebookConversion
+    └── python/
+        ├── utils/      # file_utils, config_utils
+        ├── statistics/ # analysis_utils, validation_utils
+        ├── visualization/ # plotting_utils
+        ├── logging/    # logging_utils
+        └── integration/ # gnn_utils, server_utils
 ```
 
 ## Core Features
 
 | Feature | Script | Module |
 |---------|--------|--------|
-| **Environment Setup** | [setup.jl](scripts/setup/setup.jl) | `CommandUtils`, `EnvironmentSetup` |
-| **Notebook Conversion** | [notebooks_to_scripts.jl](scripts/notebooks/notebooks_to_scripts.jl) | `NotebookConversion` |
-| **GNN Integration** | [clone_and_setup_gnn.py](scripts/gnn/clone_and_setup_gnn.py) | `gnn_utils` |
-| **Server Client** | [RxInferClient.py](scripts/server/RxInferClient.py) | `server_utils` |
+| **Environment Setup** | [setup.jl](scripts/setup/setup.jl) | `utils/CommandUtils`, `environment/EnvironmentSetup` |
+| **Notebook Conversion** | [notebooks_to_scripts.jl](scripts/notebooks/notebooks_to_scripts.jl) | `environment/NotebookConversion` |
+| **GNN Integration** | [clone_and_setup_gnn.py](scripts/gnn/clone_and_setup_gnn.py) | `integration/gnn_utils` |
+| **Server Client** | [RxInferClient.py](scripts/server/RxInferClient.py) | `integration/server_utils` |
 
-## Workflow
+## Usage
 
-```mermaid
-graph LR
-    A[scripts/] --> B[src/]
-    B --> C[Core Logic]
-    A --> D[CLI + Orchestration]
+### Julia
+
+```julia
+include("support/src/julia/Support.jl")
+using .Support
+
+# Use utilities
+ensure_directory("output")
+config = load_toml_config("config.toml")
+logger = setup_logger("output", "config.toml", 1234)
 ```
 
-1. **Setup**: Initialize environment with `setup.jl`
-2. **Convert**: Transform notebooks to scripts
-3. **Develop**: Work with scripts in `scripts/`
-4. **Extend**: Create research extensions in `research/`
+### Python
 
-## Key Commands
+```python
+from support.src.python import utils, statistics, logging
 
-### Environment Setup
-```bash
-julia support/scripts/setup/setup.jl --convert --verify --clean
-```
-
-### Notebook Conversion
-```bash
-# Incremental
-julia support/scripts/notebooks/notebooks_to_scripts.jl --skip-existing
-
-# Force all
-julia support/scripts/notebooks/notebooks_to_scripts.jl --force --verify
-
-# Filter specific
-julia support/scripts/notebooks/notebooks_to_scripts.jl --filter "Kalman"
-```
-
-### Upstream Sync
-```bash
-git remote add upstream https://github.com/ReactiveBayes/RxInferExamples.jl.git
-git fetch upstream
-git merge upstream/main
-julia support/scripts/notebooks/notebooks_to_scripts.jl --force --verify
+# Use utilities
+utils.ensure_directory("output")
+config = utils.load_toml("config.toml")
+logger = logging.setup_logger("output", "config.toml", 1234)
 ```
 
 ## Documentation Hierarchy
 
 - [Root README](../README.md) - Repository overview
 - [AGENTS.md](AGENTS.md) - Agent signposting
-- [scripts/README.md](scripts/README.md) - Scripts overview
-- Individual script READMEs in each subdirectory
+- [src/README.md](src/README.md) - Source modules overview
+- [src/julia/README.md](src/julia/README.md) - Julia modules
+- [src/python/README.md](src/python/README.md) - Python modules
 
 ## Resources
 

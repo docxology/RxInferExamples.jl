@@ -1,0 +1,30 @@
+{
+  "errors": {
+    "sprinkler_max_error": 0.0026769779886312017,
+    "sprinkler_mean_error": 0.001550139872498496,
+    "rain_mean_error": 0.006501934602481926,
+    "rain_max_error": 0.010826888759454562
+  },
+  "config": {
+    "iterations": 5,
+    "n_samples": 10000,
+    "seed": 42
+  },
+  "validation": {
+    "passed": 2,
+    "total": 2,
+    "all_passed": true
+  },
+  "learned_values": {
+    "P(Sprinkler=T|Cloudy=T)": 0.09957669824363422,
+    "P(Sprinkler=T|Cloudy=F)": 0.4973230220113688,
+    "P(Rain=T|Cloudy=T)": 0.7978230195544908,
+    "P(Rain=T|Cloudy=F)": 0.18917311124054545
+  },
+  "true_values": {
+    "P(Sprinkler=T|Cloudy=T)": 0.1,
+    "P(Sprinkler=T|Cloudy=F)": 0.5,
+    "P(Rain=T|Cloudy=T)": 0.8,
+    "P(Rain=T|Cloudy=F)": 0.2
+  }
+}

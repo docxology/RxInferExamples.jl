@@ -1,0 +1,25 @@
+======================================================================
+BAYESIAN NETWORKS ANALYSIS REPORT
+======================================================================
+
+LEARNED CPT VALUES
+----------------------------------------
+  P(Sprinkler=T|Cloudy=T): 0.0996 (true: 0.1000, error: 0.0004)
+  P(Sprinkler=T|Cloudy=F): 0.4973 (true: 0.5000, error: 0.0027)
+  P(Rain=T|Cloudy=T): 0.7978 (true: 0.8000, error: 0.0022)
+  P(Rain=T|Cloudy=F): 0.1892 (true: 0.2000, error: 0.0108)
+
+ERROR SUMMARY
+----------------------------------------
+  sprinkler_max_error: 0.0027
+  sprinkler_mean_error: 0.0016
+  rain_mean_error: 0.0065
+  rain_max_error: 0.0108
+
+VALIDATION RESULTS
+----------------------------------------
+  Passed: 2/2
+  [PASS] P(Rain|Cloudy): max_error=0.0108, mean_error=0.0065, threshold=0.1500 → PASS
+  [PASS] P(Sprinkler|Cloudy): max_error=0.0027, mean_error=0.0016, threshold=0.1500 → PASS
+
+======================================================================

@@ -1,0 +1,13 @@
+[general]
+output_dir = "output"
+seed = 1234
+n_samples = 100
+dimension = 6
+
+[validation]
+min_vaf = 90.0
+max_rmse = 1.0
+
+[inference]
+iterations = 100
+show_progress = true

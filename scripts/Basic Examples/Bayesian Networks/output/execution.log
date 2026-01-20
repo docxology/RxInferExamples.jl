@@ -1,0 +1,24 @@
+Execution Log
+=============
+Date: 2026-01-20 09:49:54
+Julia Version: 1.12.3
+OS: Darwin
+Threads: 1
+Configuration: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Bayesian Networks/config.toml
+Output Directory: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Bayesian Networks/output
+Seed: 42
+---------------------------
+
+[2026-01-20 09:49:54] [INFO] BAYESIAN NETWORKS: SPRINKLER MODEL
+[2026-01-20 09:49:54] [INFO] Starting inference experiments...
+[2026-01-20 09:49:54] [INFO] Scenario 1: Observing dry grass
+[2026-01-20 09:50:04] [INFO] Scenario 2: Observing wet grass
+[2026-01-20 09:50:04] [INFO] Scenario 3: Sprinkler off and raining
+[2026-01-20 09:50:07] [INFO] Inference experiments completed
+[2026-01-20 09:50:07] [INFO] Starting CPT learning experiment...
+[2026-01-20 09:50:07] [INFO]   Generating 10000 synthetic samples...
+[2026-01-20 09:50:07] [INFO]   Running variational inference...
+[2026-01-20 09:50:23] [INFO]   Learned P(Rain=True | Cloudy=False): 0.189
+[2026-01-20 09:50:23] [INFO]   Learned P(Rain=True | Cloudy=True): 0.798
+[2026-01-20 09:50:23] [INFO] CPT learning completed
+[2026-01-20 09:50:23] [INFO] ALL EXPERIMENTS COMPLETED SUCCESSFULLY

@@ -1,0 +1,27 @@
+Execution Log
+=============
+Date: 2026-01-20 05:06:49
+Julia Version: 1.12.3
+OS: Darwin
+Threads: 1
+Configuration: config.toml
+Output Directory: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Incomplete Data/output
+Seed: 1234
+---------------------------
+
+[2026-01-20 05:06:49] [INFO] 
+========================================
+[2026-01-20 05:06:51] [INFO] SECTION: Initialization
+[2026-01-20 05:06:51] [INFO] ========================================
+[2026-01-20 05:06:51] [INFO] Starting Incomplete Data Experiment...
+[2026-01-20 05:06:51] [INFO] 
+========================================
+[2026-01-20 05:06:51] [INFO] SECTION: Data Generation
+[2026-01-20 05:06:51] [INFO] ========================================
+[2026-01-20 05:06:52] [INFO] Generated 100 samples with dimension 6
+[2026-01-20 05:06:52] [INFO] Real Mean (first 3): [-8.119504431140863, 25.62239139935283, 1.0329163403340629]...
+[2026-01-20 05:06:52] [INFO] 
+========================================
+[2026-01-20 05:06:52] [INFO] SECTION: Inference
+[2026-01-20 05:06:52] [INFO] ========================================
+[2026-01-20 05:06:52] [INFO] Running inference...

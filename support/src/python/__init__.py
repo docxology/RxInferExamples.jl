@@ -3,12 +3,24 @@ Python Support Modules
 
 Reusable Python utilities for RxInferExamples.jl support.
 
-Modules:
-    gnn_utils: GNN repository integration utilities
-    server_utils: RxInfer server client utilities
+Submodules:
+    utils: File and configuration utilities
+    statistics: Statistical analysis and validation
+    visualization: Plotting utilities
+    experiment_logging: Logging infrastructure
+    integration: External service integrations
 """
 
-from . import gnn_utils
-from . import server_utils
+from . import utils
+from . import statistics
+from . import visualization
+from . import experiment_logging
+from . import integration
 
-__all__ = ['gnn_utils', 'server_utils']
+__all__ = [
+    'utils',
+    'statistics',
+    'visualization',
+    'experiment_logging',
+    'integration'
+]

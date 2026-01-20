@@ -1,80 +1,37 @@
-# This file was automatically generated from /home/trim/Documents/GitHub/RxInferExamples.jl/examples/Basic Examples/Bayesian Networks/Bayesian Networks.ipynb
-# by notebooks_to_scripts.jl at 2025-08-07T12:32:28.552
-#
-# Source notebook: Bayesian Networks.ipynb
+# Bayesian Networks: The Sprinkler Model
+# 
+# A comprehensive, modular implementation demonstrating inference and CPT learning
+# with RxInfer.jl featuring enhanced configuration, validation, and visualization.
 
-using RxInfer, Plots, GraphViz
+using Pkg
+Pkg.activate(@__DIR__)
 
-@model function sprinkler_model(wet_grass)
-    clouded ~ Categorical([0.5, 0.5]) # Probability of cloudy being false or true
+using TOML
+using RxInfer
+using Plots
+using Random
+using Statistics
+using JSON
+
+# Load configuration
+const CONFIG_PATH = joinpath(@__DIR__, "config.toml")
+const CONFIG = TOML.parsefile(CONFIG_PATH)
+const SUPPORT_ROOT = joinpath(@__DIR__, "..", "..", "..", "support", "src", "julia")
+
+# ============================================================
+# RxInfer Models (must be defined before includes)
+# ============================================================
+
+@model function sprinkler_model_basic(wet_grass)
+    clouded ~ Categorical([0.5, 0.5])
     rain ~ DiscreteTransition(clouded, [0.8 0.2; 0.2 0.8])
     sprinkler ~ DiscreteTransition(clouded, [0.5 0.9; 0.5 0.1])
     wet_grass ~ DiscreteTransition(sprinkler, [1.0 0.1; 0.0 0.9;;; 0.1 0.01; 0.9 0.99], rain)
 end
 
-model_generator = sprinkler_model() | (wet_grass = [ 1.0, 0.0 ], )
-model_to_plot   = RxInfer.getmodel(RxInfer.create_model(model_generator))
-GraphViz.load(model_to_plot, strategy = :simple)
-
-initialization = @initialization begin
-    μ(sprinkler) = Categorical([0.5, 0.5])
-end
-
-data = (wet_grass = [1.0, 0.0],) # Grass is dry
-
-result = infer(model=sprinkler_model(), data=data, iterations=10, initialization=initialization)
-
-p1 = bar(last(result.posteriors[:clouded]).p,
-    xticks=(1:2, ["Not Clouded", "Clouded"]),
-    ylabel="Probability",
-    title="Posterior Probability of Clouded Variable",
-    titlefontsize=10,
-    legend=false)
-
-p2 = bar(last(result.posteriors[:rain]).p,
-    xticks=(1:2, ["No Rain", "Rain"]),
-    ylabel="Probability", 
-    title="Posterior Probability of Rain Variable",
-    titlefontsize=10,
-    legend=false)
-
-p3 = bar(last(result.posteriors[:sprinkler]).p,
-    xticks=(1:2, ["Off", "On"]),
-    ylabel="Probability",
-    title="Posterior Probability of Sprinkler Variable", 
-    titlefontsize=10,
-    legend=false)
-
-plot(p1, p2, p3, layout=(1,3), size=(900,300))
-
-
-result = infer(model=sprinkler_model(), data=(wet_grass=[0.0, 1.0],), iterations=10, initialization=initialization)
-p1 = bar(last(result.posteriors[:clouded]).p,
-    xticks=(1:2, ["Not Clouded", "Clouded"]),
-    ylabel="Probability",
-    title="Posterior Probability of Clouded Variable",
-    titlefontsize=10,
-    legend=false)
-
-p2 = bar(last(result.posteriors[:rain]).p,
-    xticks=(1:2, ["No Rain", "Rain"]),
-    ylabel="Probability", 
-    title="Posterior Probability of Rain Variable",
-    titlefontsize=10,
-    legend=false)
-
-p3 = bar(last(result.posteriors[:sprinkler]).p,
-    xticks=(1:2, ["Off", "On"]),
-    ylabel="Probability",
-    title="Posterior Probability of Sprinkler Variable", 
-    titlefontsize=10,
-    legend=false)
-
-plot(p1, p2, p3, layout=(1,3), size=(900,300))
-
-@model function sprinkler_model(wet_grass_data, sprinkler_data, rain_data, clouded_data)
-    clouded ~ Categorical([0.5, 0.5]) # Probability of cloudy being false or true
-    clouded_data ~ DiscreteTransition(clouded, diageye(2))  
+@model function sprinkler_model_extended(wet_grass_data, sprinkler_data, rain_data, clouded_data)
+    clouded ~ Categorical([0.5, 0.5])
+    clouded_data ~ DiscreteTransition(clouded, diageye(2))
     rain ~ DiscreteTransition(clouded, [0.8 0.2; 0.2 0.8])
     rain_data ~ DiscreteTransition(rain, diageye(2))
     sprinkler ~ DiscreteTransition(clouded, [0.5 0.9; 0.5 0.1])
@@ -83,121 +40,9 @@ plot(p1, p2, p3, layout=(1,3), size=(900,300))
     wet_grass_data ~ DiscreteTransition(wet_grass, diageye(2))
 end
 
-result = infer(model=sprinkler_model(), data=(wet_grass_data=[0.0, 1.0], sprinkler_data=[0.0, 1.0], rain_data=missing, clouded_data=missing), iterations=10, initialization=initialization)
-
-
-result = infer(model=sprinkler_model(), data=(wet_grass_data=missing, sprinkler_data=[1.0, 0.0], rain_data=[0.0, 1.0], clouded_data=missing), iterations=10, initialization=initialization)
-
-
-p1 = bar(last(result.posteriors[:rain]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability", 
-    title="Posterior Probability of Rain Variable",
-    titlefontsize=8,
-    legend=false)
-
-p2 = bar(last(result.posteriors[:clouded]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability",
-    title="Posterior Probability of Clouded Variable",
-    titlefontsize=8,
-    legend=false)
-
-p3 = bar(last(result.posteriors[:sprinkler]).p,
-    xticks=(1:2, ["Off", "On"]),
-    ylabel="Probability",
-    title="Posterior Probability of Sprinkler Variable", 
-    titlefontsize=8,
-    legend=false)
-
-p4 = bar(last(result.posteriors[:wet_grass]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability",
-    title="Posterior Probability of Wet Grass Variable",
-    titlefontsize=8,
-    legend=false)
-
-plot(p1, p2, p3, p4, layout=(1,4), size=(1200,300))
-
-
-
-result = infer(model=sprinkler_model(), data=(wet_grass_data=[0.0, 1.0], sprinkler_data=missing, rain_data=missing, clouded_data=[1.0, 0.0]), iterations=10, initialization=initialization)
-
-
-p1 = bar(last(result.posteriors[:rain]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability", 
-    title="Posterior Probability of Rain Variable",
-    titlefontsize=8,
-    legend=false)
-
-p2 = bar(last(result.posteriors[:clouded]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability",
-    title="Posterior Probability of Clouded Variable",
-    titlefontsize=8,
-    legend=false)
-
-p3 = bar(last(result.posteriors[:sprinkler]).p,
-    xticks=(1:2, ["Off", "On"]),
-    ylabel="Probability",
-    title="Posterior Probability of Sprinkler Variable", 
-    titlefontsize=8,
-    legend=false)
-
-p4 = bar(last(result.posteriors[:wet_grass]).p,
-    xticks=(1:2, ["No", "Yes"]),
-    ylabel="Probability",
-    title="Posterior Probability of Wet Grass Variable",
-    titlefontsize=8,
-    legend=false)
-
-plot(p1, p2, p3, p4, layout=(1,4), size=(1200,300))
-
-
-
-# Generate synthetic data from the true model
-n_samples = 10000
-
-# Initialize arrays to store the samples
-clouded_samples = zeros(Int, n_samples)
-rain_samples = zeros(Int, n_samples)
-sprinkler_samples = zeros(Int, n_samples) 
-wet_grass_samples = zeros(Int, n_samples)
-
-# Sample from the model
-for i in 1:n_samples
-    # Sample clouded (prior)
-    clouded_samples[i] = rand() < 0.5 ? 1 : 2
-    
-    # Sample rain (depends on clouded)
-    rain_prob = clouded_samples[i] == 1 ? 0.2 : 0.8
-    rain_samples[i] = rand() > rain_prob ? 1 : 2
-    
-    # Sample sprinkler (depends on clouded)
-    sprinkler_prob = clouded_samples[i] == 1 ? 0.5 : 0.1
-    sprinkler_samples[i] = rand() > sprinkler_prob ? 1 : 2
-    
-    # Sample wet grass (depends on rain and sprinkler)
-    if rain_samples[i] == 2 && sprinkler_samples[i] == 2
-        wet_prob = 0.99
-    elseif rain_samples[i] == 2
-        wet_prob = 0.9
-    elseif sprinkler_samples[i] == 2
-        wet_prob = 0.9
-    else
-        wet_prob = 0.0
-    end
-    wet_grass_samples[i] = rand() < wet_prob ? 2 : 1
-end
-# Convert to one-hot encoding
-clouded_data = [[i == s ? 1.0 : 0.0 for i in 1:2] for s in clouded_samples]
-rain_data = [[i == s ? 1.0 : 0.0 for i in 1:2] for s in rain_samples]
-sprinkler_data = [[i == s ? 1.0 : 0.0 for i in 1:2] for s in sprinkler_samples]
-wet_grass_data = [[i == s ? 1.0 : 0.0 for i in 1:2] for s in wet_grass_samples];
-
-@model function sprinkler_model(clouded_data, rain_data, sprinkler_data, wet_grass_data, cpt_cloud_rain, cpt_cloud_sprinkler, cpt_sprinkler_rain_wet_grass)
-    clouded ~ Categorical([0.5, 0.5]) # Probability of cloudy being false or true
+@model function sprinkler_model_cpt(clouded_data, rain_data, sprinkler_data, wet_grass_data, 
+                                    cpt_cloud_rain, cpt_cloud_sprinkler, cpt_sprinkler_rain_wet_grass)
+    clouded ~ Categorical([0.5, 0.5])
     clouded_data ~ DiscreteTransition(clouded, diageye(2))
     rain ~ DiscreteTransition(clouded, cpt_cloud_rain)
     rain_data ~ DiscreteTransition(rain, diageye(2))
@@ -212,78 +57,255 @@ end
     cpt_cloud_sprinkler ~ DirichletCollection(ones(2, 2))
     cpt_sprinkler_rain_wet_grass ~ DirichletCollection(ones(2, 2, 2))
     for i in 1:length(clouded_data)
-        wet_grass_data[i] ~ sprinkler_model(clouded_data = clouded_data[i], rain_data = rain_data[i], sprinkler_data = sprinkler_data[i], cpt_cloud_rain = cpt_cloud_rain, cpt_cloud_sprinkler = cpt_cloud_sprinkler, cpt_sprinkler_rain_wet_grass = cpt_sprinkler_rain_wet_grass)
+        wet_grass_data[i] ~ sprinkler_model_cpt(
+            clouded_data = clouded_data[i], rain_data = rain_data[i], sprinkler_data = sprinkler_data[i],
+            cpt_cloud_rain = cpt_cloud_rain, cpt_cloud_sprinkler = cpt_cloud_sprinkler,
+            cpt_sprinkler_rain_wet_grass = cpt_sprinkler_rain_wet_grass)
     end
 end
 
+# ============================================================
+# Include Modules
+# ============================================================
 
-initialization = @initialization begin
-    q(cpt_cloud_rain) = DirichletCollection(ones(2, 2))
-    q(cpt_cloud_sprinkler) = DirichletCollection(ones(2, 2))
-    q(cpt_sprinkler_rain_wet_grass) = DirichletCollection(ones(2, 2, 2))
-    for init in sprinkler_model
+include(joinpath(SUPPORT_ROOT, "logging", "LoggingUtils.jl"))
+using .LoggingUtils: setup_logger, log_info, log_section
+
+include(joinpath(@__DIR__, "src", "DataGeneration.jl"))
+include(joinpath(@__DIR__, "src", "Analysis.jl"))
+include(joinpath(@__DIR__, "src", "Validation.jl"))
+include(joinpath(@__DIR__, "src", "Visualization.jl"))
+
+using .DataGeneration
+using .Analysis
+using .Validation
+using .Visualization
+
+# ============================================================
+# Initialization and Constraints
+# ============================================================
+
+function create_initialization()
+    @initialization begin
         μ(sprinkler) = Categorical([0.5, 0.5])
     end
 end
 
-constraints = @constraints begin
-    for q in sprinkler_model
-        q(cpt_cloud_rain, clouded, rain) = q(clouded,rain)q(cpt_cloud_rain)
-        q(cpt_cloud_sprinkler, clouded, sprinkler) = q(clouded,sprinkler)q(cpt_cloud_sprinkler)
-        q(cpt_sprinkler_rain_wet_grass, sprinkler, rain, wet_grass) = q(sprinkler,rain,wet_grass)q(cpt_sprinkler_rain_wet_grass)
+function create_learning_initialization()
+    @initialization begin
+        q(cpt_cloud_rain) = DirichletCollection(ones(2, 2))
+        q(cpt_cloud_sprinkler) = DirichletCollection(ones(2, 2))
+        q(cpt_sprinkler_rain_wet_grass) = DirichletCollection(ones(2, 2, 2))
+        for init in sprinkler_model_cpt
+            μ(sprinkler) = Categorical([0.5, 0.5])
+        end
     end
 end
 
-result = infer(model=learn_sprinkler_model(), 
-            data=(clouded_data=clouded_data, rain_data=rain_data, sprinkler_data=sprinkler_data, wet_grass_data=wet_grass_data), 
-            constraints=constraints, 
-            initialization=initialization, 
-            iterations=5, 
-            showprogress=true,
-            options=(limit_stack_depth=500,))
+function create_learning_constraints()
+    @constraints begin
+        for q in sprinkler_model_cpt
+            q(cpt_cloud_rain, clouded, rain) = q(clouded, rain)q(cpt_cloud_rain)
+            q(cpt_cloud_sprinkler, clouded, sprinkler) = q(clouded, sprinkler)q(cpt_cloud_sprinkler)
+            q(cpt_sprinkler_rain_wet_grass, sprinkler, rain, wet_grass) = q(sprinkler, rain, wet_grass)q(cpt_sprinkler_rain_wet_grass)
+        end
+    end
+end
 
-using Plots
+# ============================================================
+# Experiment Functions
+# ============================================================
 
-# Plot CPT for cloud -> rain
-cloud_rain = mean(last(result.posteriors[:cpt_cloud_rain]))
-p1 = heatmap(cloud_rain, 
-        title="P(Rain | Cloudy)", 
-        xlabel="Cloudy", 
-        ylabel="Rain",
-        xticks=(1:2, ["False", "True"]),
-        yticks=(1:2, ["False", "True"]),
-        xrotation=45,
-        left_margin=10Plots.mm,
-        bottom_margin=10Plots.mm)
+function run_inference_experiments(logger, output_dir::String, plot_config::PlotConfig)
+    logger("="^50)
+    logger("INFERENCE EXPERIMENTS")
+    logger("="^50)
+    
+    iterations = CONFIG["inference"]["iterations"]
+    init = create_initialization()
+    scenarios = CONFIG["scenarios"]
+    figures_dir = joinpath(output_dir, get(CONFIG["reporting"], "figures_subdir", "figures"))
+    mkpath(figures_dir)
+    
+    results = Dict()
+    
+    for scenario in scenarios
+        name = scenario["name"]
+        desc = scenario["description"]
+        logger("Scenario: $desc")
+        
+        model_type = get(scenario, "model", "basic")
+        variables = Symbol.(scenario["variables"])
+        
+        # Build evidence
+        evidence = scenario["evidence"]
+        data = Dict{Symbol,Any}()
+        for (k, v) in evidence
+            if v == "missing"
+                data[Symbol(k)] = missing
+            else
+                data[Symbol(k)] = v
+            end
+        end
+        
+        # Run inference
+        if model_type == "basic"
+            result = infer(model=sprinkler_model_basic(), data=(wet_grass=data[:wet_grass],), 
+                          iterations=iterations, initialization=init)
+        else
+            result = infer(model=sprinkler_model_extended(), data=NamedTuple(data),
+                          iterations=iterations, initialization=init)
+        end
+        
+        # Plot
+        output_path = joinpath(figures_dir, "posterior_$(name).png")
+        plot_posterior_bars_enhanced(result.posteriors, variables, DEFAULT_LABELS, desc, plot_config,
+            output_path=output_path)
+        
+        results[name] = result
+        logger("  → Saved: posterior_$(name).png")
+    end
+    
+    logger("Inference experiments completed: $(length(scenarios)) scenarios")
+    return results
+end
 
-# Plot CPT for cloud -> sprinkler
-cloud_sprinkler = mean(last(result.posteriors[:cpt_cloud_sprinkler]))
-p2 = heatmap(cloud_sprinkler,
-        title="P(Sprinkler | Cloudy)",
-        xlabel="Cloudy",
-        ylabel="Sprinkler", # Remove y-label since it's shown in p1
-        xticks=(1:2, ["False", "True"]),
-        yticks=(1:2, ["False", "True"]),
-        xrotation=45,
-        bottom_margin=10Plots.mm)
+function run_learning_experiment(logger, output_dir::String, plot_config::PlotConfig)
+    logger("="^50)
+    logger("CPT LEARNING EXPERIMENT")
+    logger("="^50)
+    
+    figures_dir = joinpath(output_dir, get(CONFIG["reporting"], "figures_subdir", "figures"))
+    data_dir = joinpath(output_dir, get(CONFIG["reporting"], "data_subdir", "data"))
+    mkpath(figures_dir)
+    mkpath(data_dir)
+    
+    n_samples = CONFIG["learning"]["n_samples"]
+    iterations = CONFIG["learning"]["learning_iterations"]
+    stack_depth = CONFIG["learning"]["limit_stack_depth"]
+    seed = CONFIG["general"]["seed"]
+    
+    # Generate data using config parameters
+    logger("Generating $n_samples synthetic samples...")
+    params = get_model_params(CONFIG)
+    data = prepare_learning_data(n_samples, params, seed=seed)
+    
+    # Log empirical statistics
+    samples = generate_samples(n_samples, params, seed=seed)
+    stats = sample_statistics(samples)
+    logger("Sample statistics:")
+    logger("  P(Cloudy) empirical: $(round(stats["p_cloudy_empirical"], digits=3))")
+    logger("  P(Rain) empirical: $(round(stats["p_rain_empirical"], digits=3))")
+    
+    # Run learning
+    logger("Running variational inference ($iterations iterations)...")
+    result = infer(model=learn_sprinkler_model(), data=data, constraints=create_learning_constraints(),
+        initialization=create_learning_initialization(), iterations=iterations, showprogress=false,
+        options=(limit_stack_depth=stack_depth,))
+    
+    # Analyze results
+    logger("Analyzing results...")
+    analysis = analyze_learning_result(result, CONFIG)
+    
+    for (key, val) in analysis.learned_values
+        true_val = analysis.true_values[key]
+        logger("  $key: $(round(val, digits=4)) (true: $true_val)")
+    end
+    
+    # Validation
+    validation_results = ValidationResult[]
+    threshold = CONFIG["validation"]["max_cpt_error"]
+    
+    # Validate rain CPT
+    cpt_cr = analysis.learned_cpts["cpt_cloud_rain"]
+    true_cr = get_true_cpts_from_config(CONFIG)["P(Rain|Cloudy)"]
+    push!(validation_results, validate_cpt_accuracy(cpt_cr, true_cr, threshold, name="P(Rain|Cloudy)"))
+    
+    # Validate sprinkler CPT
+    cpt_cs = analysis.learned_cpts["cpt_cloud_sprinkler"]
+    true_cs = get_true_cpts_from_config(CONFIG)["P(Sprinkler|Cloudy)"]
+    push!(validation_results, validate_cpt_accuracy(cpt_cs, true_cs, threshold, name="P(Sprinkler|Cloudy)"))
+    
+    overall = validate_all(validation_results)
+    logger(overall.message)
+    
+    # Visualizations
+    logger("Generating visualizations...")
+    
+    # CPT heatmaps
+    learned_cpts = Dict(
+        "P(Rain|Cloudy)" => cpt_cr,
+        "P(Sprinkler|Cloudy)" => cpt_cs
+    )
+    plot_cpt_heatmaps(learned_cpts, plot_config, output_path=joinpath(figures_dir, "learned_cpts.png"))
+    
+    # CPT comparison
+    plot_cpt_comparison(learned_cpts, get_true_cpts_from_config(CONFIG), plot_config,
+        output_path=joinpath(figures_dir, "cpt_comparison.png"))
+    
+    # Reports
+    if CONFIG["reporting"]["generate_text_report"]
+        generate_analysis_report(analysis, validation_results, joinpath(output_dir, "analysis_report.txt"))
+    end
+    
+    if CONFIG["reporting"]["generate_json_summary"]
+        generate_json_summary(analysis, validation_results, CONFIG, joinpath(data_dir, "summary.json"))
+    end
+    
+    return (result=result, analysis=analysis, validation=validation_results)
+end
 
-# Plot CPT for sprinkler,rain -> wet grass
-sprinkler_rain_wet = mean(last(result.posteriors[:cpt_sprinkler_rain_wet_grass]))
-p3 = heatmap(sprinkler_rain_wet[:,:,1],
-        title="P(Wet Grass=False | Sprinkler,Rain)",
-        xlabel="Rain",
-        ylabel="Sprinkler", # Remove y-label since it's shown in p1
-        xticks=(1:2, ["False", "True"]),
-        yticks=(1:2, ["False", "True"]),
-        xrotation=45,
-        bottom_margin=10Plots.mm)
-p4 = heatmap(sprinkler_rain_wet[:,:,2],
-        title="P(Wet Grass=True | Sprinkler,Rain)", 
-        xlabel="Rain",
-        ylabel="Sprinkler", # Remove y-label since it's shown in p1
-        xticks=(1:2, ["False", "True"]),
-        yticks=(1:2, ["False", "True"]),
-        xrotation=45,
-        bottom_margin=15Plots.mm)
+# ============================================================
+# Main Entry Point
+# ============================================================
 
-plot(p1, p2, p3, p4, layout=(1,4), size=(1700,305))
+function main()
+    println("="^70)
+    println("BAYESIAN NETWORKS: THE SPRINKLER MODEL (Enhanced)")
+    println("="^70)
+    
+    # Setup directories
+    output_dir = joinpath(@__DIR__, CONFIG["general"]["output_dir"])
+    figures_dir = joinpath(output_dir, get(CONFIG["reporting"], "figures_subdir", "figures"))
+    logs_dir = joinpath(output_dir, get(CONFIG["reporting"], "logs_subdir", "logs"))
+    data_dir = joinpath(output_dir, get(CONFIG["reporting"], "data_subdir", "data"))
+    
+    mkpath(figures_dir)
+    mkpath(logs_dir)
+    mkpath(data_dir)
+    
+    println("\nConfiguration: $CONFIG_PATH")
+    println("Output: $output_dir")
+    println("  ├── figures/")
+    println("  ├── logs/")
+    println("  └── data/")
+    
+    # Setup
+    logger = setup_logger(logs_dir, CONFIG_PATH, CONFIG["general"]["seed"])
+    plot_config = PlotConfig(CONFIG)
+    setup_plot_theme(plot_config)
+    
+    logger("BAYESIAN NETWORKS: SPRINKLER MODEL (Enhanced)")
+    logger("Seed: $(CONFIG["general"]["seed"])")
+    
+    # Run experiments
+    inference_results = run_inference_experiments(logger, output_dir, plot_config)
+    learning_result = run_learning_experiment(logger, output_dir, plot_config)
+    
+    # Final status
+    validation_passed = all(r -> r.passed, learning_result.validation)
+    status = validation_passed ? "PASS" : "FAIL"
+    
+    logger("="^50)
+    logger("COMPLETED [$status]")
+    logger("="^50)
+    
+    println("\n" * "="^70)
+    println("COMPLETED [$status]")
+    println("="^70)
+    println("\nOutputs saved to: $output_dir")
+end
+
+if abspath(PROGRAM_FILE) == @__FILE__
+    main()
+end

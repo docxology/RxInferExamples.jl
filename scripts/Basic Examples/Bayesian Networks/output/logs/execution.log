@@ -1,0 +1,43 @@
+Execution Log
+=============
+Date: 2026-01-20 11:11:29
+Julia Version: 1.12.3
+OS: Darwin
+Threads: 1
+Configuration: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Bayesian Networks/config.toml
+Output Directory: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Bayesian Networks/output/logs
+Seed: 42
+---------------------------
+
+[2026-01-20 11:11:29] [INFO] BAYESIAN NETWORKS: SPRINKLER MODEL (Enhanced)
+[2026-01-20 11:11:29] [INFO] Seed: 42
+[2026-01-20 11:11:29] [INFO] ==================================================
+[2026-01-20 11:11:29] [INFO] INFERENCE EXPERIMENTS
+[2026-01-20 11:11:29] [INFO] ==================================================
+[2026-01-20 11:11:29] [INFO] Scenario: Observing dry grass
+[2026-01-20 11:11:37] [INFO]   → Saved: posterior_dry_grass.png
+[2026-01-20 11:11:37] [INFO] Scenario: Observing wet grass
+[2026-01-20 11:11:37] [INFO]   → Saved: posterior_wet_grass.png
+[2026-01-20 11:11:37] [INFO] Scenario: Sprinkler off and raining
+[2026-01-20 11:11:40] [INFO]   → Saved: posterior_sprinkler_off_raining.png
+[2026-01-20 11:11:40] [INFO] Scenario: Observing cloudy weather
+[2026-01-20 11:11:40] [INFO]   → Saved: posterior_cloudy_observed.png
+[2026-01-20 11:11:40] [INFO] Inference experiments completed: 4 scenarios
+[2026-01-20 11:11:40] [INFO] ==================================================
+[2026-01-20 11:11:40] [INFO] CPT LEARNING EXPERIMENT
+[2026-01-20 11:11:40] [INFO] ==================================================
+[2026-01-20 11:11:40] [INFO] Generating 10000 synthetic samples...
+[2026-01-20 11:11:40] [INFO] Sample statistics:
+[2026-01-20 11:11:40] [INFO]   P(Cloudy) empirical: 0.496
+[2026-01-20 11:11:40] [INFO]   P(Rain) empirical: 0.491
+[2026-01-20 11:11:40] [INFO] Running variational inference (5 iterations)...
+[2026-01-20 11:11:54] [INFO] Analyzing results...
+[2026-01-20 11:11:54] [INFO]   P(Sprinkler=T|Cloudy=T): 0.0996 (true: 0.1)
+[2026-01-20 11:11:54] [INFO]   P(Sprinkler=T|Cloudy=F): 0.4973 (true: 0.5)
+[2026-01-20 11:11:54] [INFO]   P(Rain=T|Cloudy=T): 0.7978 (true: 0.8)
+[2026-01-20 11:11:54] [INFO]   P(Rain=T|Cloudy=F): 0.1892 (true: 0.2)
+[2026-01-20 11:11:54] [INFO] Validation Summary: 2/2 passed → OVERALL PASS
+[2026-01-20 11:11:54] [INFO] Generating visualizations...
+[2026-01-20 11:11:56] [INFO] ==================================================
+[2026-01-20 11:11:56] [INFO] COMPLETED [PASS]
+[2026-01-20 11:11:56] [INFO] ==================================================

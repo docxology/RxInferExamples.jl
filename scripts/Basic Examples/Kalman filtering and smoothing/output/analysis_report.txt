@@ -1,0 +1,57 @@
+Kalman Filter Analysis Report
+=============================
+
+
+### Rotating SSM (Global)
+
+| Metric     | Value  |
+| ---------- | ------ |
+| RMSE       | 1.5549 |
+| MAE        | 1.2463 |
+| VAF (%)    | 99.91  |
+| Max Error  | 6.6885 |
+| Status     | STABLE |
+| Validation | PASS   |
+
+
+### Linear Identification
+
+| Component | RMSE    | MAE     | VAF (%) | Max Error | Validation |
+| --------- | ------- | ------- | ------- | --------- | ---------- |
+| X         | 57.7199 | 49.4696 | 76.89   | 109.7662  | PASS       |
+| W         | 57.8043 | 49.5601 | -77.97  | 110.0807  | FAIL       |
+
+Linear Ident. Converged: false (Change: 0.007601336017614813)
+
+
+### Nonlinear Identification
+
+| Component     | RMSE   | MAE    | VAF (%) | Max Error | Validation |
+| ------------- | ------ | ------ | ------- | --------- | ---------- |
+| X (Nonlinear) | 4.7273 | 3.2633 | 74.85   | 12.3373   | PASS       |
+| W (Nonlinear) | 3.0187 | 2.3467 | 55.35   | 7.6193    | PASS       |
+
+Nonlinear Ident Converged: false (Change: 5.689250720721475)
+
+
+### Reactive Identification (Online)
+
+| Metric     | Value   |
+| ---------- | ------- |
+| RMSE       | 18.1673 |
+| MAE        | 15.1915 |
+| VAF (%)    | 0.23    |
+| Max Error  | 41.6745 |
+| Validation | PASS    |
+
+
+### Smoothing (Missing Data)
+
+| Metric     | Value  |
+| ---------- | ------ |
+| RMSE       | 0.4296 |
+| MAE        | 0.3441 |
+| VAF (%)    | 63.29  |
+| Max Error  | 1.2646 |
+| Validation | PASS   |
+

@@ -1,0 +1,38 @@
+# Configuration for Kalman Filtering and Smoothing Examples
+
+[general]
+output_dir = "output"
+seed = 1234
+
+[rotating_ssm]
+n_observations = 3000
+theta_denominator = 35.0 # theta = pi / 35
+noise_variance_Q = 25.0
+prior_variance = 100.0
+validation_min_vaf = 95.0
+validation_max_rmse = 5.0
+
+[identification]
+n_observations = 2500
+iterations = 50
+smoothing_alpha = 1e-4
+ar_coefficient = 0.98
+validation_min_vaf = 40.0   # Hard problem, lower threshold
+validation_max_rmse = 100.0 # Large scale values
+
+[reactive_identification]
+n_observations = 3000
+iterations = 10
+history_length = 1000
+ar_coefficient = 0.98
+validation_min_vaf = 0.0    # Online learning is noisy
+validation_max_rmse = 50.0
+
+[smoothing]
+n_observations = 2500
+missing_start = 100
+missing_end = 125
+process_noise_P = 1.0
+iterations = 20
+validation_min_vaf = 60.0
+validation_max_rmse = 1.0

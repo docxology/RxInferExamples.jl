@@ -1,0 +1,89 @@
+Kalman Filter Execution Log
+===========================
+Date: 2026-01-20 04:52:52
+Julia Version: 1.12.3
+OS: Darwin
+Threads: 1
+Configuration: config.toml
+Output Directory: output
+Seed: 1234
+---------------------------
+
+[2026-01-20 04:52:52] [INFO] 
+========================================
+[2026-01-20 04:52:52] [INFO] SECTION: Rotating Set-Point SSM
+[2026-01-20 04:52:52] [INFO] ========================================
+[2026-01-20 04:52:52] [INFO] Starting Rotating Set-Point SSM...
+[2026-01-20 04:52:54] [INFO] Saved data plot to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/rotating_ssm/rotating_ssm_data.png
+[2026-01-20 04:53:05] [INFO] Log Evidence (Negative Free Energy): [-18812.38861627142]
+[2026-01-20 04:53:05] [INFO] Stats: RMSE=1.5549071583641947, MAE=1.2463170941937352, VAF=99.90706090882799%, MaxErr=6.688473164671812
+[2026-01-20 04:53:05] [INFO] 
+----------------------------------------
+[2026-01-20 04:53:05] [INFO] VALIDATION [PASS]
+[2026-01-20 04:53:05] [INFO] PASS: VAF 99.91% >= 95.0%
+[2026-01-20 04:53:05] [INFO] PASS: RMSE 1.5549 <= 5.0
+[2026-01-20 04:53:05] [INFO] ----------------------------------------
+
+[2026-01-20 04:53:06] [INFO] Saved error plot to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/rotating_ssm/rotating_ssm_error_dim1.png
+[2026-01-20 04:53:06] [INFO] Saved result plot to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/rotating_ssm/rotating_ssm_result.png
+[2026-01-20 04:53:06] [INFO] 
+========================================
+[2026-01-20 04:53:06] [INFO] SECTION: Identification Problem
+[2026-01-20 04:53:06] [INFO] ========================================
+[2026-01-20 04:53:06] [INFO] Starting Identification Problem (Standard)...
+[2026-01-20 04:53:06] [INFO] Case 1: Linear model y = x + w
+[2026-01-20 04:53:07] [INFO] Running inference for Linear case (λ=0.98)...
+[2026-01-20 04:53:21] [INFO] Linear Ident X: RMSE=57.719884527451526, VAF=76.88960004020237%
+[2026-01-20 04:53:21] [INFO] Linear Ident W: RMSE=57.8043402321789, VAF=-77.96972470297699%
+[2026-01-20 04:53:21] [INFO] 
+----------------------------------------
+[2026-01-20 04:53:21] [INFO] VALIDATION [PASS]
+[2026-01-20 04:53:21] [INFO] PASS: VAF 76.89% >= 40.0%
+[2026-01-20 04:53:21] [INFO] PASS: RMSE 57.7199 <= 100.0
+[2026-01-20 04:53:21] [INFO] ----------------------------------------
+
+[2026-01-20 04:53:21] [INFO] Linear Ident. Converged: false (Change: 0.007601336017614813)
+[2026-01-20 04:53:21] [INFO] Saved linear result to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/identification/identification_linear_result.png
+[2026-01-20 04:53:21] [INFO] Case 2: Nonlinear model y = min(x, w)
+[2026-01-20 04:53:22] [INFO] Running inference for Nonlinear case (λ=0.98)...
+[2026-01-20 04:53:25] [INFO] Nonlinear Ident X: RMSE=4.727285780012134, VAF=74.84832932123581%
+[2026-01-20 04:53:25] [INFO] Nonlinear Ident W: RMSE=3.018671247548755, VAF=55.354607899365526%
+[2026-01-20 04:53:25] [INFO] 
+----------------------------------------
+[2026-01-20 04:53:25] [INFO] VALIDATION [PASS]
+[2026-01-20 04:53:25] [INFO] PASS: VAF 74.85% >= 40.0%
+[2026-01-20 04:53:25] [INFO] PASS: RMSE 4.7273 <= 100.0
+[2026-01-20 04:53:25] [INFO] ----------------------------------------
+
+[2026-01-20 04:53:25] [INFO] Nonlinear Ident Converged: false (Change: 5.689250720721475)
+[2026-01-20 04:53:25] [INFO] Saved nonlinear result to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/identification/identification_nonlinear_result.png
+[2026-01-20 04:53:25] [INFO] 
+========================================
+[2026-01-20 04:53:25] [INFO] SECTION: Reactive Identification
+[2026-01-20 04:53:25] [INFO] ========================================
+[2026-01-20 04:53:25] [INFO] Starting Reactive Identification (Online)...
+[2026-01-20 04:53:32] [INFO] Saved rx result to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Kalman filtering and smoothing/output/reactive_identification/rx_identification_result.png
+[2026-01-20 04:53:32] [INFO] Reactive Ident X: RMSE=18.167340058657935, VAF=0.2297158677714295%
+[2026-01-20 04:53:32] [INFO] 
+----------------------------------------
+[2026-01-20 04:53:32] [INFO] VALIDATION [PASS]
+[2026-01-20 04:53:32] [INFO] PASS: VAF 0.23% >= 0.0%
+[2026-01-20 04:53:32] [INFO] PASS: RMSE 18.1673 <= 50.0
+[2026-01-20 04:53:32] [INFO] ----------------------------------------
+
+[2026-01-20 04:53:32] [INFO] Reactive Identification completed.
+[2026-01-20 04:53:32] [INFO] 
+========================================
+[2026-01-20 04:53:32] [INFO] SECTION: Kalman Smoothing
+[2026-01-20 04:53:32] [INFO] ========================================
+[2026-01-20 04:53:32] [INFO] Starting Kalman Smoothing (Missing Data)...
+[2026-01-20 04:53:37] [INFO] Smoothing: RMSE=0.42963861369915624, VAF=63.29331564740469%
+[2026-01-20 04:53:37] [INFO] 
+----------------------------------------
+[2026-01-20 04:53:37] [INFO] VALIDATION [PASS]
+[2026-01-20 04:53:37] [INFO] PASS: VAF 63.29% >= 60.0%
+[2026-01-20 04:53:37] [INFO] PASS: RMSE 0.4296 <= 1.0
+[2026-01-20 04:53:37] [INFO] ----------------------------------------
+
+[2026-01-20 04:53:37] [INFO] Smoothing example completed.
+[2026-01-20 04:53:37] [INFO] All examples executed successfully.
