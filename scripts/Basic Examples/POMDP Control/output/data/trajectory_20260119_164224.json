@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "action_name": "down",
+      "action": 3,
+      "step_time_ms": 9.2,
+      "t": 1,
+      "position": [
+        1,
+        1
+      ],
+      "observation": [
+        1,
+        1
+      ]
+    },
+    {
+      "action_name": "right",
+      "action": 2,
+      "step_time_ms": 6.88,
+      "t": 2,
+      "position": [
+        2,
+        1
+      ],
+      "observation": [
+        2,
+        1
+      ]
+    },
+    {
+      "action_name": "right",
+      "action": 2,
+      "step_time_ms": 7.36,
+      "t": 3,
+      "position": [
+        3,
+        2
+      ],
+      "observation": [
+        3,
+        2
+      ]
+    },
+    {
+      "action_name": "right",
+      "action": 2,
+      "step_time_ms": 0.19,
+      "t": 4,
+      "position": [
+        4,
+        3
+      ],
+      "observation": [
+        4,
+        3
+      ]
+    }
+  ],
+  "timestamp": "2026-01-19T16:42:24",
+  "n_steps": 4
+}

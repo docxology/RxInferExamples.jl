@@ -1,0 +1,97 @@
+# =============================================================================
+# POMDP Control Configuration
+# =============================================================================
+# This file configures all parameters for the POMDP Control experiment.
+# See docs/configuration.md for detailed parameter descriptions.
+# =============================================================================
+
+[environment]
+# Grid world dimensions
+grid_size = 5
+
+# Wind strength per column (array of integers, length = grid_size)
+# Wind pushes agent upward (positive Y direction)
+wind = [0, 1, 1, 1, 0]
+
+# Agent start position (x, y) - 1-indexed
+start_x = 1
+start_y = 1
+
+# Goal position (x, y) - 1-indexed  
+goal_x = 4
+goal_y = 3
+
+[experiment]
+# Number of experiments per sequence (learning accumulates across these)
+n_experiments = 200
+
+# Planning horizon (steps per experiment)
+planning_horizon = 4
+
+# Number of VMP iterations for inference
+n_iterations = 20
+
+# Number of replicate sequences to run (each starts with fresh learning)
+n_replicates = 5
+
+# Random seed for reproducibility (0 = use system time for each replicate)
+random_seed = 0
+
+# Action selection mode
+# true = sample from policy distribution (stochastic, enables exploration)
+# false = use mode/argmax (deterministic, greedy)
+stochastic_actions = false
+
+# Exploration temperature for stochastic action selection
+# Higher values = more random exploration (only used if stochastic_actions = true)
+# 1.0 = sample directly from policy, >1.0 = more uniform, <1.0 = more greedy
+exploration_temperature = 0.3
+
+
+[priors]
+# A matrix (observation model) diagonal bias
+# Higher = stronger identity prior (observations reveal state)
+A_diagonal_bias = 0.1
+
+# B matrix (transition model) uniform concentration
+# Higher = more confident uniform prior
+B_concentration = 1.0
+
+[logging]
+# Log level: debug, info, warn, error
+level = "info"
+
+# Log to file
+log_to_file = true
+
+# Log file path (relative to project root)
+log_file = "pomdp.log"
+
+# Show progress bar during experiments
+show_progress = true
+
+[verification]
+# Minimum success rate for verification to pass (0.0 - 1.0)
+min_success_rate = 0.5
+
+# Number of experiments for headless verification
+verification_experiments = 50
+
+[visualization]
+# Enable visualization output
+enabled = true
+
+# Generate static plots
+generate_plots = true
+
+# Generate animations (slower)
+generate_animations = true
+
+# Export JSON data
+export_data = true
+
+# Animation frames per second
+animation_fps = 3
+
+# Figure DPI
+figure_dpi = 150

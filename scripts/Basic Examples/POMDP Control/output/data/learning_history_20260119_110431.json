@@ -1,0 +1,1607 @@
+{
+  "n_experiments": 200,
+  "experiments": [
+    {
+      "steps": 4,
+      "success": false,
+      "id": 1,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2183,
+      "A_entropy": 2.7352
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 2,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2176,
+      "A_entropy": 2.6809
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 3,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2166,
+      "A_entropy": 2.6346
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 4,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2154,
+      "A_entropy": 2.6018
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 5,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2137,
+      "A_entropy": 2.5741
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 6,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2123,
+      "A_entropy": 2.5393
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 7,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2108,
+      "A_entropy": 2.5211
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 8,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2094,
+      "A_entropy": 2.5104
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 9,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2078,
+      "A_entropy": 2.4943
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 10,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2062,
+      "A_entropy": 2.4875
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 11,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2045,
+      "A_entropy": 2.4757
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 12,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.203,
+      "A_entropy": 2.4595
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 13,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.2012,
+      "A_entropy": 2.4557
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 14,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1994,
+      "A_entropy": 2.4522
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 15,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1976,
+      "A_entropy": 2.4492
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 16,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1959,
+      "A_entropy": 2.4416
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 17,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1942,
+      "A_entropy": 2.4392
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 18,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1925,
+      "A_entropy": 2.4364
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 19,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1909,
+      "A_entropy": 2.435
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 20,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1894,
+      "A_entropy": 2.4292
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 21,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.188,
+      "A_entropy": 2.4282
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 22,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1865,
+      "A_entropy": 2.4227
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 23,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1851,
+      "A_entropy": 2.4154
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 24,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1838,
+      "A_entropy": 2.414
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 25,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1822,
+      "A_entropy": 2.4123
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 26,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1809,
+      "A_entropy": 2.3899
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 27,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1797,
+      "A_entropy": 2.3888
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 28,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1782,
+      "A_entropy": 2.3848
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 29,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.177,
+      "A_entropy": 2.379
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 30,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1758,
+      "A_entropy": 2.3575
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 31,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1744,
+      "A_entropy": 2.3408
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 32,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1734,
+      "A_entropy": 2.3084
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 33,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1723,
+      "A_entropy": 2.293
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 34,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1711,
+      "A_entropy": 2.2903
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 35,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1698,
+      "A_entropy": 2.2784
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 36,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1686,
+      "A_entropy": 2.2736
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 37,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1678,
+      "A_entropy": 2.2732
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 38,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1667,
+      "A_entropy": 2.2722
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 39,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1652,
+      "A_entropy": 2.2709
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 40,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1642,
+      "A_entropy": 2.2672
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 41,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1629,
+      "A_entropy": 2.2602
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 42,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1618,
+      "A_entropy": 2.2451
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 43,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1604,
+      "A_entropy": 2.2417
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 44,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1591,
+      "A_entropy": 2.2306
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 45,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1576,
+      "A_entropy": 2.2289
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 46,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1562,
+      "A_entropy": 2.225
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 47,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1549,
+      "A_entropy": 2.2216
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 48,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1537,
+      "A_entropy": 2.2113
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 49,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1525,
+      "A_entropy": 2.2108
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 50,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1512,
+      "A_entropy": 2.1937
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 51,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1498,
+      "A_entropy": 2.1801
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 52,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1484,
+      "A_entropy": 2.1789
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 53,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1472,
+      "A_entropy": 2.1739
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 54,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.146,
+      "A_entropy": 2.1655
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 55,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1447,
+      "A_entropy": 2.161
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 56,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1437,
+      "A_entropy": 2.1595
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 57,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1427,
+      "A_entropy": 2.1409
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 58,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1416,
+      "A_entropy": 2.1405
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 59,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1404,
+      "A_entropy": 2.1396
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 60,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1399,
+      "A_entropy": 2.1394
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 61,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1392,
+      "A_entropy": 2.139
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 62,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.138,
+      "A_entropy": 2.1323
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 63,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1367,
+      "A_entropy": 2.1314
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 64,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1356,
+      "A_entropy": 2.1172
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 65,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1343,
+      "A_entropy": 2.1127
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 66,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1331,
+      "A_entropy": 2.1094
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 67,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1322,
+      "A_entropy": 2.1087
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 68,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1311,
+      "A_entropy": 2.1057
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 69,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1301,
+      "A_entropy": 2.0941
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 70,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1292,
+      "A_entropy": 2.0904
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 71,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.128,
+      "A_entropy": 2.0898
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 72,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.127,
+      "A_entropy": 2.0896
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 73,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1261,
+      "A_entropy": 2.0893
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 74,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1249,
+      "A_entropy": 2.088
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 75,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1243,
+      "A_entropy": 2.0878
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 76,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1232,
+      "A_entropy": 2.0854
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 77,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1222,
+      "A_entropy": 2.0852
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 78,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.121,
+      "A_entropy": 2.083
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 79,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1198,
+      "A_entropy": 2.0813
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 80,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1187,
+      "A_entropy": 2.0699
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 81,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1175,
+      "A_entropy": 2.0684
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 82,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1166,
+      "A_entropy": 2.0464
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 83,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1158,
+      "A_entropy": 2.046
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 84,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1147,
+      "A_entropy": 2.0367
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 85,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1137,
+      "A_entropy": 2.0337
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 86,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1125,
+      "A_entropy": 2.031
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 87,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1116,
+      "A_entropy": 2.0308
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 88,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1108,
+      "A_entropy": 2.0302
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 89,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1103,
+      "A_entropy": 2.0301
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 90,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1094,
+      "A_entropy": 2.0162
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 91,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1083,
+      "A_entropy": 2.0073
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 92,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.107,
+      "A_entropy": 2.0026
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 93,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.106,
+      "A_entropy": 2.0022
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 94,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1051,
+      "A_entropy": 1.9984
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 95,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1045,
+      "A_entropy": 1.9982
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 96,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1034,
+      "A_entropy": 1.9959
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 97,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.1022,
+      "A_entropy": 1.9923
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 98,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.101,
+      "A_entropy": 1.9909
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 99,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.0999,
+      "A_entropy": 1.9906
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 100,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.0988,
+      "A_entropy": 1.9819
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 101,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.0981,
+      "A_entropy": 1.9818
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 102,
+      "cumulative_rate": 0.0,
+      "B_entropy": 3.097,
+      "A_entropy": 1.9815
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 103,
+      "cumulative_rate": 0.0097,
+      "B_entropy": 3.0963,
+      "A_entropy": 1.9786
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 104,
+      "cumulative_rate": 0.0096,
+      "B_entropy": 3.0953,
+      "A_entropy": 1.9715
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 105,
+      "cumulative_rate": 0.0095,
+      "B_entropy": 3.0943,
+      "A_entropy": 1.9704
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 106,
+      "cumulative_rate": 0.0094,
+      "B_entropy": 3.0933,
+      "A_entropy": 1.9598
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 107,
+      "cumulative_rate": 0.0093,
+      "B_entropy": 3.0923,
+      "A_entropy": 1.9513
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 108,
+      "cumulative_rate": 0.0093,
+      "B_entropy": 3.0913,
+      "A_entropy": 1.9502
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 109,
+      "cumulative_rate": 0.0092,
+      "B_entropy": 3.0908,
+      "A_entropy": 1.95
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 110,
+      "cumulative_rate": 0.0091,
+      "B_entropy": 3.0898,
+      "A_entropy": 1.9431
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 111,
+      "cumulative_rate": 0.009,
+      "B_entropy": 3.0887,
+      "A_entropy": 1.936
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 112,
+      "cumulative_rate": 0.0179,
+      "B_entropy": 3.088,
+      "A_entropy": 1.9334
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 113,
+      "cumulative_rate": 0.0177,
+      "B_entropy": 3.0871,
+      "A_entropy": 1.9199
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 114,
+      "cumulative_rate": 0.0175,
+      "B_entropy": 3.0864,
+      "A_entropy": 1.9197
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 115,
+      "cumulative_rate": 0.0174,
+      "B_entropy": 3.0853,
+      "A_entropy": 1.9173
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 116,
+      "cumulative_rate": 0.0172,
+      "B_entropy": 3.0845,
+      "A_entropy": 1.9137
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 117,
+      "cumulative_rate": 0.0171,
+      "B_entropy": 3.0836,
+      "A_entropy": 1.907
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 118,
+      "cumulative_rate": 0.0254,
+      "B_entropy": 3.0829,
+      "A_entropy": 1.9055
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 119,
+      "cumulative_rate": 0.0252,
+      "B_entropy": 3.082,
+      "A_entropy": 1.9045
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 120,
+      "cumulative_rate": 0.025,
+      "B_entropy": 3.0811,
+      "A_entropy": 1.902
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 121,
+      "cumulative_rate": 0.0248,
+      "B_entropy": 3.08,
+      "A_entropy": 1.9016
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 122,
+      "cumulative_rate": 0.0246,
+      "B_entropy": 3.0789,
+      "A_entropy": 1.9013
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 123,
+      "cumulative_rate": 0.0244,
+      "B_entropy": 3.0779,
+      "A_entropy": 1.901
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 124,
+      "cumulative_rate": 0.0242,
+      "B_entropy": 3.077,
+      "A_entropy": 1.8952
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 125,
+      "cumulative_rate": 0.024,
+      "B_entropy": 3.0764,
+      "A_entropy": 1.8952
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 126,
+      "cumulative_rate": 0.0238,
+      "B_entropy": 3.0754,
+      "A_entropy": 1.8847
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 127,
+      "cumulative_rate": 0.0236,
+      "B_entropy": 3.0746,
+      "A_entropy": 1.8845
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 128,
+      "cumulative_rate": 0.0234,
+      "B_entropy": 3.074,
+      "A_entropy": 1.8837
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 129,
+      "cumulative_rate": 0.0233,
+      "B_entropy": 3.0735,
+      "A_entropy": 1.8835
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 130,
+      "cumulative_rate": 0.0231,
+      "B_entropy": 3.0727,
+      "A_entropy": 1.882
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 131,
+      "cumulative_rate": 0.0229,
+      "B_entropy": 3.0718,
+      "A_entropy": 1.8811
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 132,
+      "cumulative_rate": 0.0227,
+      "B_entropy": 3.0708,
+      "A_entropy": 1.8797
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 133,
+      "cumulative_rate": 0.0226,
+      "B_entropy": 3.0699,
+      "A_entropy": 1.8789
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 134,
+      "cumulative_rate": 0.0299,
+      "B_entropy": 3.0694,
+      "A_entropy": 1.8778
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 135,
+      "cumulative_rate": 0.0296,
+      "B_entropy": 3.0688,
+      "A_entropy": 1.8776
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 136,
+      "cumulative_rate": 0.0368,
+      "B_entropy": 3.0682,
+      "A_entropy": 1.8765
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 137,
+      "cumulative_rate": 0.0365,
+      "B_entropy": 3.0675,
+      "A_entropy": 1.8764
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 138,
+      "cumulative_rate": 0.0362,
+      "B_entropy": 3.0672,
+      "A_entropy": 1.8763
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 139,
+      "cumulative_rate": 0.036,
+      "B_entropy": 3.0663,
+      "A_entropy": 1.8761
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 140,
+      "cumulative_rate": 0.0357,
+      "B_entropy": 3.0653,
+      "A_entropy": 1.8705
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 141,
+      "cumulative_rate": 0.0355,
+      "B_entropy": 3.0644,
+      "A_entropy": 1.8694
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 142,
+      "cumulative_rate": 0.0352,
+      "B_entropy": 3.0634,
+      "A_entropy": 1.8684
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 143,
+      "cumulative_rate": 0.035,
+      "B_entropy": 3.0624,
+      "A_entropy": 1.867
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 144,
+      "cumulative_rate": 0.0347,
+      "B_entropy": 3.0618,
+      "A_entropy": 1.8663
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 145,
+      "cumulative_rate": 0.0345,
+      "B_entropy": 3.0609,
+      "A_entropy": 1.8583
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 146,
+      "cumulative_rate": 0.0342,
+      "B_entropy": 3.0599,
+      "A_entropy": 1.8535
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 147,
+      "cumulative_rate": 0.034,
+      "B_entropy": 3.059,
+      "A_entropy": 1.8524
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 148,
+      "cumulative_rate": 0.0338,
+      "B_entropy": 3.0581,
+      "A_entropy": 1.8512
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 149,
+      "cumulative_rate": 0.0336,
+      "B_entropy": 3.0575,
+      "A_entropy": 1.8511
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 150,
+      "cumulative_rate": 0.0333,
+      "B_entropy": 3.0566,
+      "A_entropy": 1.8504
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 151,
+      "cumulative_rate": 0.0331,
+      "B_entropy": 3.0559,
+      "A_entropy": 1.8503
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 152,
+      "cumulative_rate": 0.0329,
+      "B_entropy": 3.0555,
+      "A_entropy": 1.8502
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 153,
+      "cumulative_rate": 0.0327,
+      "B_entropy": 3.055,
+      "A_entropy": 1.8496
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 154,
+      "cumulative_rate": 0.0325,
+      "B_entropy": 3.0542,
+      "A_entropy": 1.8495
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 155,
+      "cumulative_rate": 0.0323,
+      "B_entropy": 3.0534,
+      "A_entropy": 1.8493
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 156,
+      "cumulative_rate": 0.0321,
+      "B_entropy": 3.0525,
+      "A_entropy": 1.8442
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 157,
+      "cumulative_rate": 0.0318,
+      "B_entropy": 3.0519,
+      "A_entropy": 1.8442
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 158,
+      "cumulative_rate": 0.0316,
+      "B_entropy": 3.0512,
+      "A_entropy": 1.8428
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 159,
+      "cumulative_rate": 0.0314,
+      "B_entropy": 3.0504,
+      "A_entropy": 1.8423
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 160,
+      "cumulative_rate": 0.0312,
+      "B_entropy": 3.0495,
+      "A_entropy": 1.8381
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 161,
+      "cumulative_rate": 0.0311,
+      "B_entropy": 3.0486,
+      "A_entropy": 1.8379
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 162,
+      "cumulative_rate": 0.0309,
+      "B_entropy": 3.0476,
+      "A_entropy": 1.837
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 163,
+      "cumulative_rate": 0.0307,
+      "B_entropy": 3.0472,
+      "A_entropy": 1.8365
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 164,
+      "cumulative_rate": 0.0305,
+      "B_entropy": 3.0467,
+      "A_entropy": 1.836
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 165,
+      "cumulative_rate": 0.0303,
+      "B_entropy": 3.046,
+      "A_entropy": 1.8356
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 166,
+      "cumulative_rate": 0.0301,
+      "B_entropy": 3.0454,
+      "A_entropy": 1.8355
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 167,
+      "cumulative_rate": 0.0299,
+      "B_entropy": 3.0446,
+      "A_entropy": 1.829
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 168,
+      "cumulative_rate": 0.0298,
+      "B_entropy": 3.0441,
+      "A_entropy": 1.8285
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 169,
+      "cumulative_rate": 0.0296,
+      "B_entropy": 3.0435,
+      "A_entropy": 1.8283
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 170,
+      "cumulative_rate": 0.0294,
+      "B_entropy": 3.0429,
+      "A_entropy": 1.8283
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 171,
+      "cumulative_rate": 0.0292,
+      "B_entropy": 3.0423,
+      "A_entropy": 1.8281
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 172,
+      "cumulative_rate": 0.0291,
+      "B_entropy": 3.0418,
+      "A_entropy": 1.8276
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 173,
+      "cumulative_rate": 0.0347,
+      "B_entropy": 3.0414,
+      "A_entropy": 1.8268
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 174,
+      "cumulative_rate": 0.0345,
+      "B_entropy": 3.0408,
+      "A_entropy": 1.8267
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 175,
+      "cumulative_rate": 0.0343,
+      "B_entropy": 3.04,
+      "A_entropy": 1.8261
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 176,
+      "cumulative_rate": 0.0341,
+      "B_entropy": 3.0391,
+      "A_entropy": 1.8226
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 177,
+      "cumulative_rate": 0.0339,
+      "B_entropy": 3.0383,
+      "A_entropy": 1.8221
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 178,
+      "cumulative_rate": 0.0337,
+      "B_entropy": 3.0376,
+      "A_entropy": 1.822
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 179,
+      "cumulative_rate": 0.0335,
+      "B_entropy": 3.0367,
+      "A_entropy": 1.8175
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 180,
+      "cumulative_rate": 0.0333,
+      "B_entropy": 3.0359,
+      "A_entropy": 1.8169
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 181,
+      "cumulative_rate": 0.0331,
+      "B_entropy": 3.0351,
+      "A_entropy": 1.8165
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 182,
+      "cumulative_rate": 0.033,
+      "B_entropy": 3.0345,
+      "A_entropy": 1.8163
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 183,
+      "cumulative_rate": 0.0328,
+      "B_entropy": 3.0338,
+      "A_entropy": 1.8159
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 184,
+      "cumulative_rate": 0.0326,
+      "B_entropy": 3.0329,
+      "A_entropy": 1.8094
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 185,
+      "cumulative_rate": 0.0324,
+      "B_entropy": 3.0321,
+      "A_entropy": 1.8086
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 186,
+      "cumulative_rate": 0.0323,
+      "B_entropy": 3.0313,
+      "A_entropy": 1.8056
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 187,
+      "cumulative_rate": 0.0321,
+      "B_entropy": 3.0306,
+      "A_entropy": 1.8055
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 188,
+      "cumulative_rate": 0.0319,
+      "B_entropy": 3.0298,
+      "A_entropy": 1.8054
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 189,
+      "cumulative_rate": 0.0317,
+      "B_entropy": 3.0292,
+      "A_entropy": 1.8053
+    },
+    {
+      "steps": 4,
+      "success": true,
+      "id": 190,
+      "cumulative_rate": 0.0368,
+      "B_entropy": 3.0287,
+      "A_entropy": 1.8045
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 191,
+      "cumulative_rate": 0.0366,
+      "B_entropy": 3.0281,
+      "A_entropy": 1.8042
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 192,
+      "cumulative_rate": 0.0365,
+      "B_entropy": 3.0273,
+      "A_entropy": 1.8029
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 193,
+      "cumulative_rate": 0.0363,
+      "B_entropy": 3.0265,
+      "A_entropy": 1.8022
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 194,
+      "cumulative_rate": 0.0361,
+      "B_entropy": 3.0258,
+      "A_entropy": 1.8015
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 195,
+      "cumulative_rate": 0.0359,
+      "B_entropy": 3.0249,
+      "A_entropy": 1.8008
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 196,
+      "cumulative_rate": 0.0357,
+      "B_entropy": 3.0241,
+      "A_entropy": 1.7955
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 197,
+      "cumulative_rate": 0.0355,
+      "B_entropy": 3.0234,
+      "A_entropy": 1.7954
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 198,
+      "cumulative_rate": 0.0354,
+      "B_entropy": 3.0227,
+      "A_entropy": 1.7945
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 199,
+      "cumulative_rate": 0.0352,
+      "B_entropy": 3.0219,
+      "A_entropy": 1.7939
+    },
+    {
+      "steps": 4,
+      "success": false,
+      "id": 200,
+      "cumulative_rate": 0.035,
+      "B_entropy": 3.0211,
+      "A_entropy": 1.793
+    }
+  ],
+  "timestamp": "2026-01-19T11:04:31",
+  "final_success_rate": 0.035
+}

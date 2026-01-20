@@ -1,0 +1,54 @@
+{
+  "config": {
+    "n_experiments": 200,
+    "n_replicates": 5,
+    "grid_size": 5,
+    "start": [
+      1,
+      1
+    ],
+    "n_iterations": 20,
+    "B_concentration": 1.0,
+    "goal": [
+      4,
+      3
+    ],
+    "planning_horizon": 4,
+    "A_diagonal_bias": 0.1,
+    "wind": [
+      0,
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  "results": {
+    "convergence_experiments": [
+      37,
+      37,
+      37,
+      37,
+      37
+    ],
+    "ci_95_success_rate": 1.0880185641326534e-16,
+    "mean_convergence": 37.0,
+    "mean_steps_to_goal": [
+      4.0,
+      4.0,
+      4.0,
+      4.0,
+      4.0
+    ],
+    "mean_success_rate": 0.9099999999999998,
+    "final_success_rates": [
+      0.91,
+      0.91,
+      0.91,
+      0.91,
+      0.91
+    ],
+    "std_success_rate": 1.2412670766236366e-16
+  },
+  "timestamp": "2026-01-19T16:42:25"
+}

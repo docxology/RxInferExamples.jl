@@ -1,0 +1,41 @@
+[2026-01-19 05:15:47] INFO - Launching PendulumApp...
+[2026-01-19 05:20:31] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:20:33] INFO - start! called - creating inference engine
+[2026-01-19 05:20:33] DEBUG - vmp_iterations => 5
+[2026-01-19 05:20:46] DEBUG - Starting inference engine
+[2026-01-19 05:20:47] INFO - Agent started
+[2026-01-19 05:21:28] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:21:29] INFO - start! called - creating inference engine
+[2026-01-19 05:21:29] DEBUG - vmp_iterations => 5
+[2026-01-19 05:21:42] DEBUG - Starting inference engine
+[2026-01-19 05:21:43] INFO - Agent started
+[2026-01-19 05:23:44] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:23:46] INFO - start! called - creating inference engine
+[2026-01-19 05:23:46] DEBUG - vmp_iterations => 5
+[2026-01-19 05:23:58] DEBUG - Starting inference engine
+[2026-01-19 05:23:59] INFO - Agent started
+[2026-01-19 05:24:27] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:24:28] INFO - start! called - creating inference engine
+[2026-01-19 05:24:29] DEBUG - vmp_iterations => 5
+[2026-01-19 05:24:41] DEBUG - Starting inference engine
+[2026-01-19 05:24:42] INFO - Agent started
+[2026-01-19 05:25:20] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:25:21] INFO - start! called - creating inference engine
+[2026-01-19 05:25:21] DEBUG - vmp_iterations => 5
+[2026-01-19 05:25:33] DEBUG - Starting inference engine
+[2026-01-19 05:25:34] INFO - Agent started
+[2026-01-19 05:26:04] DEBUG - reset! called: mean_control_priors=[0.0, 0.0, 0.0], var_control_priors=[1.0e10, 1.0e10, 1.0e10]
+[2026-01-19 05:26:06] INFO - start! called - creating inference engine
+[2026-01-19 05:26:06] DEBUG - vmp_iterations => 5
+[2026-01-19 05:26:19] DEBUG - Starting inference engine
+[2026-01-19 05:26:20] INFO - Agent started
+[2026-01-19 05:26:24] INFO - stop! called
+[2026-01-19 05:26:24] INFO - Agent stopped and subscriptions removed
+[2026-01-19 05:27:43] INFO - Launching PendulumApp...
+[2026-01-19 05:28:17] INFO - Launching PendulumApp...
+[2026-01-19 05:31:40] INFO - Launching PendulumApp...
+[2026-01-19 05:32:19] INFO - Launching PendulumApp...
+[2026-01-19 05:35:34] INFO - Launching PendulumApp...
+[2026-01-19 05:37:41] INFO - Launching PendulumApp...
+[2026-01-19 05:39:09] INFO - Launching PendulumApp...
+[2026-01-19 05:39:52] INFO - Launching PendulumApp...

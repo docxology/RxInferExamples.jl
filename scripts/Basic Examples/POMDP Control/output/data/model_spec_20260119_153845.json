@@ -1,0 +1,41 @@
+{
+  "inference": {
+    "n_experiments": 200,
+    "n_iterations": 20,
+    "planning_horizon": 4
+  },
+  "priors": {
+    "goal_prior": "Categorical at goal position",
+    "B_prior": "DirichletCollection(ones(25, 25, 4))",
+    "A_prior": "DirichletCollection(diageye(25) + 0.1)"
+  },
+  "model_name": "pomdp_model",
+  "environment": {
+    "grid_size": 5,
+    "n_states": 25,
+    "n_actions": 4,
+    "actions": {
+      "4": "left",
+      "1": "up",
+      "2": "right",
+      "3": "down"
+    },
+    "start": [
+      1,
+      1
+    ],
+    "goal": [
+      4,
+      3
+    ],
+    "type": "WindyGridWorld",
+    "wind": [
+      0,
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  "timestamp": "2026-01-19T15:38:46"
+}

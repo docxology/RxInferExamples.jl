@@ -1,0 +1,63 @@
+POMDP Control - Combinatorial Sweep Log
+Timestamp: 2026-01-19 11:09:45
+======================================================================
+Parameters swept: [:planning_horizon, :exploration_temperature]
+Combinations: 9
+Experiments per config: 50
+Replicates per config: 2
+======================================================================
+
+Config 1: planning_horizon=2.0, exploration_temperature=0.1
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0]
+  Convergence: 50.0
+  Runtime: 16.1s
+
+Config 2: planning_horizon=2.0, exploration_temperature=0.3
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0]
+  Convergence: 50.0
+  Runtime: 1.6s
+
+Config 3: planning_horizon=2.0, exploration_temperature=0.5
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0]
+  Convergence: 50.0
+  Runtime: 1.5s
+
+Config 4: planning_horizon=4.0, exploration_temperature=0.1
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0]
+  Convergence: 50.0
+  Runtime: 3.2s
+
+Config 5: planning_horizon=4.0, exploration_temperature=0.3
+  Success rate: 1.0% ± 1.4%
+  Replicates: [0.0, 0.02]
+  Convergence: 50.0
+  Runtime: 3.1s
+
+Config 6: planning_horizon=4.0, exploration_temperature=0.5
+  Success rate: 2.0% ± 0.0%
+  Replicates: [0.02, 0.02]
+  Convergence: 25.5
+  Runtime: 3.2s
+
+Config 7: planning_horizon=6.0, exploration_temperature=0.1
+  Success rate: 3.0% ± 1.4%
+  Replicates: [0.04, 0.02]
+  Convergence: 50.0
+  Runtime: 5.1s
+
+Config 8: planning_horizon=6.0, exploration_temperature=0.3
+  Success rate: 4.0% ± 0.0%
+  Replicates: [0.04, 0.04]
+  Convergence: 50.0
+  Runtime: 4.7s
+
+Config 9: planning_horizon=6.0, exploration_temperature=0.5
+  Success rate: 3.0% ± 1.4%
+  Replicates: [0.04, 0.02]
+  Convergence: 50.0
+  Runtime: 4.7s
+

@@ -1,0 +1,105 @@
+POMDP Control - Combinatorial Sweep Log
+Timestamp: 2026-01-19 15:55:50
+======================================================================
+Parameters swept: [:planning_horizon, :exploration_temperature]
+Combinations: 16
+Experiments per config: 100
+Replicates per config: 3
+======================================================================
+
+Config 1: planning_horizon=4.0, exploration_temperature=0.1
+  Success rate: 82.0% ± 0.0%
+  Replicates: [0.82, 0.82, 0.82]
+  Convergence: 37.0
+  Runtime: 22.9s
+
+Config 2: planning_horizon=4.0, exploration_temperature=0.2
+  Success rate: 82.0% ± 0.0%
+  Replicates: [0.82, 0.82, 0.82]
+  Convergence: 37.0
+  Runtime: 7.4s
+
+Config 3: planning_horizon=4.0, exploration_temperature=0.3
+  Success rate: 82.0% ± 0.0%
+  Replicates: [0.82, 0.82, 0.82]
+  Convergence: 37.0
+  Runtime: 7.7s
+
+Config 4: planning_horizon=4.0, exploration_temperature=0.5
+  Success rate: 82.0% ± 0.0%
+  Replicates: [0.82, 0.82, 0.82]
+  Convergence: 37.0
+  Runtime: 7.5s
+
+Config 5: planning_horizon=6.0, exploration_temperature=0.1
+  Success rate: 99.0% ± 0.0%
+  Replicates: [0.99, 0.99, 0.99]
+  Convergence: 3.0
+  Runtime: 7.6s
+
+Config 6: planning_horizon=6.0, exploration_temperature=0.2
+  Success rate: 99.0% ± 0.0%
+  Replicates: [0.99, 0.99, 0.99]
+  Convergence: 3.0
+  Runtime: 8.0s
+
+Config 7: planning_horizon=6.0, exploration_temperature=0.3
+  Success rate: 99.0% ± 0.0%
+  Replicates: [0.99, 0.99, 0.99]
+  Convergence: 3.0
+  Runtime: 8.0s
+
+Config 8: planning_horizon=6.0, exploration_temperature=0.5
+  Success rate: 99.0% ± 0.0%
+  Replicates: [0.99, 0.99, 0.99]
+  Convergence: 3.0
+  Runtime: 8.0s
+
+Config 9: planning_horizon=8.0, exploration_temperature=0.1
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 20.9s
+
+Config 10: planning_horizon=8.0, exploration_temperature=0.2
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 20.3s
+
+Config 11: planning_horizon=8.0, exploration_temperature=0.3
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 20.6s
+
+Config 12: planning_horizon=8.0, exploration_temperature=0.5
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 20.8s
+
+Config 13: planning_horizon=10.0, exploration_temperature=0.1
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 26.8s
+
+Config 14: planning_horizon=10.0, exploration_temperature=0.2
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 26.5s
+
+Config 15: planning_horizon=10.0, exploration_temperature=0.3
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 26.4s
+
+Config 16: planning_horizon=10.0, exploration_temperature=0.5
+  Success rate: 0.0% ± 0.0%
+  Replicates: [0.0, 0.0, 0.0]
+  Convergence: 100.0
+  Runtime: 26.5s
+

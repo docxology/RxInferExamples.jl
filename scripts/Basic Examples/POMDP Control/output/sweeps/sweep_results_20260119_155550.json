@@ -1,0 +1,294 @@
+{
+  "parameters": {
+    "planning_horizon": [
+      4,
+      6,
+      8,
+      10
+    ],
+    "exploration_temperature": [
+      0.1,
+      0.2,
+      0.3,
+      0.5
+    ]
+  },
+  "experiments_per_config": 100,
+  "results": [
+    {
+      "config_idx": 1,
+      "replicate_rates": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "mean_convergence": 37.0,
+      "config": {
+        "planning_horizon": 4.0,
+        "exploration_temperature": 0.1
+      },
+      "mean_steps": 4.0,
+      "runtime": 22.941262006759644,
+      "mean_success_rate": 0.82,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 2,
+      "replicate_rates": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "mean_convergence": 37.0,
+      "config": {
+        "planning_horizon": 4.0,
+        "exploration_temperature": 0.2
+      },
+      "mean_steps": 4.0,
+      "runtime": 7.446516036987305,
+      "mean_success_rate": 0.82,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 3,
+      "replicate_rates": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "mean_convergence": 37.0,
+      "config": {
+        "planning_horizon": 4.0,
+        "exploration_temperature": 0.3
+      },
+      "mean_steps": 4.0,
+      "runtime": 7.6528990268707275,
+      "mean_success_rate": 0.82,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 4,
+      "replicate_rates": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "mean_convergence": 37.0,
+      "config": {
+        "planning_horizon": 4.0,
+        "exploration_temperature": 0.5
+      },
+      "mean_steps": 4.0,
+      "runtime": 7.469186067581177,
+      "mean_success_rate": 0.82,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 5,
+      "replicate_rates": [
+        0.99,
+        0.99,
+        0.99
+      ],
+      "mean_convergence": 3.0,
+      "config": {
+        "planning_horizon": 6.0,
+        "exploration_temperature": 0.1
+      },
+      "mean_steps": 4.02,
+      "runtime": 7.6141908168792725,
+      "mean_success_rate": 0.9899999999999999,
+      "std_success_rate": 1.3597399555105182e-16
+    },
+    {
+      "config_idx": 6,
+      "replicate_rates": [
+        0.99,
+        0.99,
+        0.99
+      ],
+      "mean_convergence": 3.0,
+      "config": {
+        "planning_horizon": 6.0,
+        "exploration_temperature": 0.2
+      },
+      "mean_steps": 4.02,
+      "runtime": 8.012768030166626,
+      "mean_success_rate": 0.9899999999999999,
+      "std_success_rate": 1.3597399555105182e-16
+    },
+    {
+      "config_idx": 7,
+      "replicate_rates": [
+        0.99,
+        0.99,
+        0.99
+      ],
+      "mean_convergence": 3.0,
+      "config": {
+        "planning_horizon": 6.0,
+        "exploration_temperature": 0.3
+      },
+      "mean_steps": 4.02,
+      "runtime": 8.025705099105835,
+      "mean_success_rate": 0.9899999999999999,
+      "std_success_rate": 1.3597399555105182e-16
+    },
+    {
+      "config_idx": 8,
+      "replicate_rates": [
+        0.99,
+        0.99,
+        0.99
+      ],
+      "mean_convergence": 3.0,
+      "config": {
+        "planning_horizon": 6.0,
+        "exploration_temperature": 0.5
+      },
+      "mean_steps": 4.02,
+      "runtime": 8.014856100082397,
+      "mean_success_rate": 0.9899999999999999,
+      "std_success_rate": 1.3597399555105182e-16
+    },
+    {
+      "config_idx": 9,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 8.0,
+        "exploration_temperature": 0.1
+      },
+      "mean_steps": 8.0,
+      "runtime": 20.879053115844727,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 10,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 8.0,
+        "exploration_temperature": 0.2
+      },
+      "mean_steps": 8.0,
+      "runtime": 20.335649967193604,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 11,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 8.0,
+        "exploration_temperature": 0.3
+      },
+      "mean_steps": 8.0,
+      "runtime": 20.55694603919983,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 12,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 8.0,
+        "exploration_temperature": 0.5
+      },
+      "mean_steps": 8.0,
+      "runtime": 20.799501180648804,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 13,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 10.0,
+        "exploration_temperature": 0.1
+      },
+      "mean_steps": 10.0,
+      "runtime": 26.791154146194458,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 14,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 10.0,
+        "exploration_temperature": 0.2
+      },
+      "mean_steps": 10.0,
+      "runtime": 26.47132110595703,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 15,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 10.0,
+        "exploration_temperature": 0.3
+      },
+      "mean_steps": 10.0,
+      "runtime": 26.367255926132202,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    },
+    {
+      "config_idx": 16,
+      "replicate_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_convergence": 100.0,
+      "config": {
+        "planning_horizon": 10.0,
+        "exploration_temperature": 0.5
+      },
+      "mean_steps": 10.0,
+      "runtime": 26.487468957901,
+      "mean_success_rate": 0.0,
+      "std_success_rate": 0.0
+    }
+  ],
+  "timestamp": "2026-01-19T16:00:16",
+  "n_combinations": 16,
+  "replicates_per_config": 3
+}
