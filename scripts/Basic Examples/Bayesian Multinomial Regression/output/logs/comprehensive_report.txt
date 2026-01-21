@@ -1,0 +1,100 @@
+================================================================================
+               COMPREHENSIVE BAYESIAN REGRESSION ANALYSIS REPORT
+================================================================================
+
+Generated: 2026-01-20 16:08:44
+================================================================================
+
+------------------------------------------------------------
+CONFIGURATION
+------------------------------------------------------------
+General:
+  Seed: 123
+  Output Directory: output
+
+Classification:
+  Trials per observation (N): 30
+  Categories (k): 40
+  Sample size: 5000
+  Iterations: 50
+
+Regression:
+  Trials per observation (N): 3
+  Feature dimension (k): 5
+  Sample size: 5000
+  Iterations: 20
+
+
+------------------------------------------------------------
+CLASSIFICATION EXPERIMENT
+------------------------------------------------------------
+Error Metrics:
+  Mean Squared Error (MSE):       0.000000
+  Root MSE (RMSE):                0.000572
+  Maximum Absolute Error:         0.001419
+
+Correlation Metrics:
+  Pearson Correlation:            0.999863
+
+Convergence:
+  Final Free Energy:              170087.038233
+  Final Change (|ΔFE|):           2.543128
+  Total Iterations:               50
+
+
+------------------------------------------------------------
+REGRESSION EXPERIMENT
+------------------------------------------------------------
+Error Metrics:
+  Mean Squared Error (MSE):       0.000078
+  Root MSE (RMSE):                0.008811
+  Maximum Absolute Error:         0.014263
+
+Uncertainty Quantification:
+  Mean Posterior Std:             0.012309
+  95% Credible Interval Coverage: 100.000000%
+
+Convergence:
+  Final Free Energy:              11475.524195
+  Total Iterations:               20
+
+
+------------------------------------------------------------
+VALIDATION SUMMARY
+------------------------------------------------------------
+Overall: 2/2 PASSED
+
+Individual Tests:
+  [PASS] Probability MSE: 0.000000 ≤ 0.010000 → PASS
+  [PASS] Coefficient MSE: 0.000078 ≤ 0.500000 → PASS
+
+
+------------------------------------------------------------
+INTERPRETATION GUIDE
+------------------------------------------------------------
+MSE (Mean Squared Error):
+  < 0.001  : Excellent fit
+  0.001-0.01: Good fit
+  0.01-0.1 : Acceptable fit
+  > 0.1    : Poor fit
+
+Correlation:
+  > 0.99   : Nearly perfect
+  0.9-0.99 : Excellent
+  0.7-0.9  : Good
+  < 0.7    : Weak
+
+Coverage (95% CI should contain ~95% of true values):
+  90-100%  : Well-calibrated
+  < 90%    : Overconfident (intervals too narrow)
+  > 100%   : Conservative (intervals too wide)
+
+Convergence:
+  |ΔFE| < 1e-6 : Converged
+  |ΔFE| < 1e-3 : Near convergence
+  |ΔFE| > 1e-3 : May need more iterations
+
+
+================================================================================
+                                 END OF REPORT
+================================================================================

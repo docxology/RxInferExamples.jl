@@ -1,0 +1,104 @@
+{
+  "classification": {
+    "convergence": {
+      "free_energy_final": 170087.03823255468,
+      "iterations": 50,
+      "free_energy_change": 2.5431281035998836
+    },
+    "correlation": {
+      "pearson": 0.9998626963258694
+    },
+    "error_metrics": {
+      "mse": 3.2697484853321034e-7,
+      "rmse": 0.0005718171460643781,
+      "max_error": 0.0014190575713930453
+    }
+  },
+  "validation": {
+    "passed": 2,
+    "total": 2,
+    "all_passed": true,
+    "tests": [
+      {
+        "name": "Probability MSE",
+        "passed": true,
+        "threshold": 0.01,
+        "message": "Probability MSE: 0.000000 ≤ 0.010000 → PASS",
+        "actual": 3.2697484853321034e-7
+      },
+      {
+        "name": "Coefficient MSE",
+        "passed": true,
+        "threshold": 0.5,
+        "message": "Coefficient MSE: 0.000078 ≤ 0.500000 → PASS",
+        "actual": 7.762887812073518e-5
+      }
+    ]
+  },
+  "regression": {
+    "convergence": {
+      "free_energy_final": 11475.524195415608,
+      "iterations": 20
+    },
+    "uncertainty": {
+      "mean_posterior_std": 0.012309346367684984,
+      "coverage_95": 1.0
+    },
+    "error_metrics": {
+      "mse": 7.762887812073518e-5,
+      "rmse": 0.008810725175644464,
+      "max_error": 0.014262634241274955
+    }
+  },
+  "metadata": {
+    "generated_at": "2026-01-20T16:08:45",
+    "report_type": "comprehensive_regression_analysis"
+  },
+  "configuration": {
+    "classification": {
+      "iterations": 50,
+      "nsamples": 5000,
+      "N": 30,
+      "k": 40,
+      "wishart_df": 3
+    },
+    "general": {
+      "log_level": "INFO",
+      "seed": 123,
+      "output_dir": "output"
+    },
+    "regression": {
+      "iterations": 20,
+      "feature_transform": "sin",
+      "nsamples": 5000,
+      "N": 3,
+      "k": 5,
+      "wishart_df": 5
+    },
+    "prediction": {
+      "polya_meta_samples": 21
+    },
+    "visualization": {
+      "sigma_range": 4.0,
+      "colorscheme": "viridis",
+      "dpi": 150,
+      "simplex_resolution": 500,
+      "show_values": true,
+      "simplex_correlation": 0.9,
+      "simplex_variance": 1.0,
+      "figure_format": "png"
+    },
+    "validation": {
+      "max_beta_mse": 0.5,
+      "max_probability_mse": 0.01,
+      "enabled": true
+    },
+    "reporting": {
+      "figures_subdir": "figures",
+      "generate_json_summary": true,
+      "logs_subdir": "logs",
+      "data_subdir": "data",
+      "generate_text_report": true
+    }
+  }
+}

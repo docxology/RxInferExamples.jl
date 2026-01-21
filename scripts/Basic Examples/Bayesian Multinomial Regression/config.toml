@@ -1,0 +1,69 @@
+# Bayesian Multinomial Regression Configuration
+
+# ============================================================
+# General Settings
+# ============================================================
+[general]
+seed = 123
+output_dir = "output"
+log_level = "INFO"
+
+# ============================================================
+# Classification Experiment (Multinomial without covariates)
+# ============================================================
+[classification]
+N = 30                    # Number of trials per observation
+k = 40                    # Number of categories
+nsamples = 5000           # Number of data samples
+iterations = 50           # Inference iterations
+wishart_df = 3            # Wishart prior degrees of freedom
+
+# ============================================================
+# Regression Experiment (Multinomial with covariates)
+# ============================================================
+[regression]
+N = 3                     # Number of trials per observation
+k = 5                     # Feature dimension
+nsamples = 5000           # Number of data samples
+iterations = 20           # Inference iterations
+wishart_df = 5            # Wishart prior degrees of freedom
+feature_transform = "sin" # Feature transform: "identity", "sin", "tanh"
+
+# ============================================================
+# Predictive Settings
+# ============================================================
+[prediction]
+polya_meta_samples = 21   # MultinomialPolyaMeta samples
+
+# ============================================================
+# Visualization Settings
+# ============================================================
+[visualization]
+dpi = 150
+colorscheme = "viridis"
+sigma_range = 4.0         # Range for Gaussian plots in std devs
+simplex_resolution = 500  # Resolution for simplex contours
+figure_format = "png"
+show_values = true
+
+# Simplex demonstration covariance
+simplex_variance = 1.0
+simplex_correlation = 0.9
+
+# ============================================================
+# Validation Settings
+# ============================================================
+[validation]
+enabled = true
+max_probability_mse = 0.01    # Max MSE for probability estimation
+max_beta_mse = 0.5            # Max MSE for regression coefficients
+
+# ============================================================
+# Reporting Settings
+# ============================================================
+[reporting]
+generate_text_report = true
+generate_json_summary = true
+figures_subdir = "figures"
+logs_subdir = "logs"
+data_subdir = "data"

@@ -1,0 +1,54 @@
+{
+  "convergence": {
+    "classification": {
+      "final_value": 170087.03823255468,
+      "rate": 0.191613904260846,
+      "converged": false
+    },
+    "regression": {
+      "final_value": 11475.524195415608,
+      "rate": 1.0368469486551493,
+      "converged": false
+    }
+  },
+  "classification_metrics": {
+    "spearman": 0.9966228893058161,
+    "mse": 3.2697484853321034e-7,
+    "rmse": 0.0005718171460643781,
+    "pearson": 0.9998626963258694
+  },
+  "regression_metrics": {
+    "pearson": 0.9999269357762899,
+    "mse": 7.762887812073518e-5,
+    "spearman": 0.9,
+    "rmse": 0.008810725175644464,
+    "kendall_tau": 0.8,
+    "max_error": 0.014262634241274955,
+    "bias": 0.004601465144614472,
+    "mae": 0.006708227601847213,
+    "r_squared": 0.9997952291942435,
+    "explained_variance": 0.9998510809721861
+  },
+  "coverage": {
+    "90_percent": 1.0,
+    "50_percent": 1.0,
+    "95_percent": 1.0
+  },
+  "residuals": {
+    "durbin_watson": 1.4451147983211439,
+    "iqr": 0.013419848530563522,
+    "max": 0.014262634241274955,
+    "min": -0.004564023757334779,
+    "skewness": 0.162238575001866,
+    "jarque_bera": 0.9902542790107899,
+    "kurtosis": -2.1559070291590143,
+    "mean": 0.004601465144614472,
+    "std": 0.008400550327481028
+  },
+  "multivariate": {
+    "condition_number": 1.4059341095708318,
+    "total_variance": 0.0007593054073766178,
+    "generalized_variance": 7.771568058660934e-20,
+    "effective_dimension": 4.916569508359367
+  }
+}

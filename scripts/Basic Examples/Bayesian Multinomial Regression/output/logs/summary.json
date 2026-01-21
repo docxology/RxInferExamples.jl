@@ -1,0 +1,23 @@
+{
+  "classification": {
+    "mse": 3.2697484853321034e-7,
+    "iterations": 50,
+    "correlation": 0.9998626963258694,
+    "max_error": 0.0014190575713930453
+  },
+  "config": {
+    "seed": 123,
+    "classification_samples": 5000,
+    "regression_samples": 5000
+  },
+  "validation": {
+    "passed": 2,
+    "total": 2,
+    "all_passed": true
+  },
+  "regression": {
+    "mse": 7.762887812073518e-5,
+    "max_error": 0.014262634241274955,
+    "coverage_2sigma": 1.0
+  }
+}
