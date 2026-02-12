@@ -53,6 +53,7 @@ julia support/setup.jl --convert --verify
 ```
 
 This single command:
+
 - Updates Julia and dependencies
 - Converts notebooks to scripts
 - Builds examples and documentation
@@ -61,27 +62,32 @@ This single command:
 ### Option 2: Step-by-Step Setup
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/your-username/RxInferExamples.jl.git
    cd RxInferExamples.jl
    ```
 
 2. **Environment Setup**:
+
    ```bash
    julia support/setup.jl --convert --verify
    ```
 
 3. **Convert Notebooks to Scripts**:
+
    ```bash
    julia support/notebooks_to_scripts.jl --skip-existing --verify
    ```
 
 4. **Build Examples**:
+
    ```bash
    make examples
    ```
 
 5. **Build Documentation**:
+
    ```bash
    make docs
    make preview
@@ -117,10 +123,13 @@ Most of the examples are available on the [official website](https://examples.rx
 ## Contributing
 
 # Overwrite all conversions
+
 research/run_research/run.sh --overwrite
 
 # Interactive mode for custom configuration
+
 research/run_research/run.sh --interactive
+
 ```
 
 Configuration defaults are in `research/run_research/run_config.yaml`:
@@ -152,6 +161,7 @@ The `research/` directory contains extended implementations:
 - **`streaming/`**: Infinite data stream processing examples
 
 Each research area includes:
+
 - Dedicated `README.md` with detailed documentation
 - `Project.toml` for isolated dependencies
 - Comprehensive test suites
@@ -202,11 +212,9 @@ For detailed guidelines, see our [contribution guide](https://examples.rxinfer.c
 
 ## Resources
 
-- [Upstream Contribution Guide](https://examples.rxinfer.com/how_to_contribute/)
-- [RxInfer.jl Documentation](https://docs.rxinfer.com)
-- [RxInfer.jl Repository](https://github.com/ReactiveBayes/RxInfer.jl)
-- [Examples Documentation](https://examples.rxinfer.com)
-- [Enhanced Support Documentation](support/Support_README.md)
+- **`support/setup.jl`**: Comprehensive environment setup and validation
+- **`support/notebooks_to_scripts.jl`**: Notebook to script conversion with verification
+- **`support/README.md`**: Detailed documentation of support utilities
 
 ## Syncing with Upstream
 
@@ -230,6 +238,7 @@ RxInfer can be used from Python through client-server infrastructure developed b
 **Note** that the license for the `RxInferServer` is different from Rxinfer and is hosted under a different organization.
 
 The server provides OpenAPI-compliant endpoints for model deployment and inference, while the Python client offers a convenient interface to:
+
 - Create and manage model instances
 - Execute inference tasks
 - Monitor inference progress
@@ -237,6 +246,7 @@ The server provides OpenAPI-compliant endpoints for model deployment and inferen
 - Process results in a native format
 
 For more information, visit:
+
 - [Server Documentation](https://server.rxinfer.com)
 - [Python SDK Documentation](https://lazydynamics.github.io/RxInferClient.py/)
 

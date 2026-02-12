@@ -14,35 +14,28 @@ julia support/scripts/notebooks/notebooks_to_scripts.jl --skip-existing
 
 ## Structure
 
-```
-support/
-├── AGENTS.md           # Agent signposting
-├── README.md           # This file
-├── scripts/            # Thin orchestrators (CLI, workflow)
-│   ├── gnn/            # → uses src/python/integration/gnn_utils.py
-│   ├── notebooks/      # → uses src/julia/environment/NotebookConversion.jl
-│   ├── server/         # → uses src/python/integration/server_utils.py
-│   └── setup/          # → uses src/julia/utils/, environment/
-└── src/                # Core modules (testable, reusable)
-    ├── julia/
-    │   ├── Support.jl  # Umbrella module
-    │   ├── utils/      # CommandUtils, FileUtils, ConfigUtils
-    │   ├── statistics/ # AnalysisUtils, ValidationUtils
-    │   ├── visualization/ # PlottingUtils, AnimationUtils
-    │   ├── logging/    # LoggingUtils, ReportingUtils
-    │   └── environment/ # EnvironmentSetup, NotebookConversion
-    └── python/
-        ├── utils/      # file_utils, config_utils
-        ├── statistics/ # analysis_utils, validation_utils
-        ├── visualization/ # plotting_utils
-        ├── logging/    # logging_utils
-        └── integration/ # gnn_utils, server_utils
-```
+The support sidecar is organized by responsibility to ensure modularity and ease of testing:
 
-## Core Features
+- **`scripts/`**: **Thin Orchestrators**. Domain-organized executable scripts (CLI, workflow) that handle user input and orchestration. They should remain "thin" and delegate logic to `src/`.
+- **`src/`**: **Core Modules**. testable, reusable library code.
+  - **`julia/`**: Julia utilities (Command, File, Config, Stats, etc.)
+  - **`python/`**: Python utilities (File, Config, Stats, Logging, etc.)
+- **`docs/`**: Reference documentation for RxInfer.jl patterns.
+- **`tests/`**: Suite-level verification for all support modules.
+- **`notes/`**: Temporary research notes and scratchpad.
+
+```mermaid
+graph TD
+    support/ --> scripts/
+    support/ --> src/
+    support/ --> docs/
+    support/ --> tests/
+    support/ --> notes/
+end
+```
 
 | Feature | Script | Module |
-|---------|--------|--------|
+| ----------- | ------ | ------ |
 | **Environment Setup** | [setup.jl](scripts/setup/setup.jl) | `utils/CommandUtils`, `environment/EnvironmentSetup` |
 | **Notebook Conversion** | [notebooks_to_scripts.jl](scripts/notebooks/notebooks_to_scripts.jl) | `environment/NotebookConversion` |
 | **GNN Integration** | [clone_and_setup_gnn.py](scripts/gnn/clone_and_setup_gnn.py) | `integration/gnn_utils` |

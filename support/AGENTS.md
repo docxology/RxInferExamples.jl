@@ -15,6 +15,13 @@ graph LR
     E --> D
 ```
 
+| Area | Entrance | Capability |
+| :--- | :--- | :--- |
+| **Core** | [`src/julia/Support.jl`](src/julia/Support.jl) | File, Command, Config, Stats, **RxUtils**, **RxVis** |
+| **Setup** | [`scripts/setup/setup.jl`](scripts/setup/setup.jl) | Complete environment orchestration |
+| **Convert** | [`scripts/notebooks/`](scripts/notebooks/README.md) | Notebook → Script workflow |
+| **GNN** | [`scripts/gnn/`](scripts/gnn/README.md) | Integration with GNN repo |
+
 ## Directory Structure
 
 ```
@@ -22,18 +29,16 @@ support/
 ├── AGENTS.md              # This file - agent signposting
 ├── README.md              # Detailed usage documentation
 ├── docs/                  # RxInfer.jl reference documentation
-├── scripts/               # Executable utility scripts
-│   ├── gnn/               # GNN integration
-│   ├── notebooks/         # Notebook conversion
-│   ├── server/            # Python server client
-│   └── setup/             # Environment setup
-└── src/                   # Source modules (future)
+├── scripts/               # Executable utility scripts (Thin Orchestrators)
+└── src/                   # Source modules (Core Library)
+    ├── julia/             # Julia support modules
+    └── python/            # Python support modules
 ```
 
 ## Quick Reference
 
 | Script | Purpose | Usage |
-|--------|---------|-------|
+| :--- | :--- | :--- |
 | [setup.jl](scripts/setup/setup.jl) | Environment orchestration | `julia support/scripts/setup/setup.jl --convert --verify` |
 | [notebooks_to_scripts.jl](scripts/notebooks/notebooks_to_scripts.jl) | Notebook → script conversion | `julia support/scripts/notebooks/notebooks_to_scripts.jl --skip-existing` |
 | [clone_and_setup_gnn.py](scripts/gnn/clone_and_setup_gnn.py) | GNN repository setup | `python support/scripts/gnn/clone_and_setup_gnn.py` |
@@ -42,6 +47,7 @@ support/
 ## Subdirectories
 
 ### `scripts/` - Utility Scripts
+
 Domain-organized executable scripts:
 
 - **[gnn/](scripts/gnn/README.md)** - GNN (Generalized Notation Notation) integration
@@ -50,10 +56,14 @@ Domain-organized executable scripts:
 - **[setup/](scripts/setup/)** - Environment setup and validation
 
 ### `src/` - Source Modules
+
 Reusable Julia modules (future development):
+
 - Shared utilities and functions
 - Common analysis tools
 - Integration libraries
+- **RxUtils**: Active Inference helpers (transition matrices, one-hot)
+- **RxVisualization**: Plotting tools for hidden states and free energy
 
 ## Integration Points
 
@@ -66,17 +76,20 @@ Reusable Julia modules (future development):
 ## Workflow Patterns
 
 ### Daily Development
+
 ```bash
 julia support/scripts/setup/setup.jl --convert --verify
 ```
 
 ### Upstream Sync
+
 ```bash
 git fetch upstream && git merge upstream/main
 julia support/scripts/notebooks/notebooks_to_scripts.jl --force --verify
 ```
 
 ### Research Development
+
 ```bash
 julia support/scripts/notebooks/notebooks_to_scripts.jl --skip-existing
 cd research/<area>/

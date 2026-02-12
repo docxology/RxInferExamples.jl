@@ -21,24 +21,54 @@ module Support
 # Get the directory of this file
 const SUPPORT_ROOT = @__DIR__
 
-# Utils submodule
-include(joinpath(SUPPORT_ROOT, "utils", "CommandUtils.jl"))
-include(joinpath(SUPPORT_ROOT, "utils", "FileUtils.jl"))
-include(joinpath(SUPPORT_ROOT, "utils", "ConfigUtils.jl"))
+# We need `Reexport` module for `@reexport` macro
+using Reexport
 
-# Statistics submodule
+# ============================================================
+# Utilities
+# ============================================================
+include(joinpath(SUPPORT_ROOT, "utils", "ConfigUtils.jl"))
+include(joinpath(SUPPORT_ROOT, "utils", "FileUtils.jl"))
+include(joinpath(SUPPORT_ROOT, "utils", "CommandUtils.jl"))
+include(joinpath(SUPPORT_ROOT, "utils", "RxUtils.jl")) # New
+
+@reexport using .ConfigUtils
+@reexport using .FileUtils
+@reexport using .CommandUtils
+@reexport using .RxUtils
+
+# ============================================================
+# Statistics & Analysis
+# ============================================================
 include(joinpath(SUPPORT_ROOT, "statistics", "AnalysisUtils.jl"))
 include(joinpath(SUPPORT_ROOT, "statistics", "ValidationUtils.jl"))
 
-# Visualization submodule
+@reexport using .AnalysisUtils
+@reexport using .ValidationUtils
+
+# ============================================================
+# Visualization
+# ============================================================
 include(joinpath(SUPPORT_ROOT, "visualization", "PlottingUtils.jl"))
 include(joinpath(SUPPORT_ROOT, "visualization", "AnimationUtils.jl"))
+include(joinpath(SUPPORT_ROOT, "visualization", "RxVisualization.jl")) # New
 
-# Logging submodule
+@reexport using .PlottingUtils
+@reexport using .AnimationUtils
+@reexport using .RxVisualization
+
+# ============================================================
+# Logging
+# ============================================================
 include(joinpath(SUPPORT_ROOT, "logging", "LoggingUtils.jl"))
 include(joinpath(SUPPORT_ROOT, "logging", "ReportingUtils.jl"))
 
-# Environment submodule
+@reexport using .LoggingUtils
+@reexport using .ReportingUtils
+
+# ============================================================
+# Environment
+# ============================================================
 include(joinpath(SUPPORT_ROOT, "environment", "EnvironmentSetup.jl"))
 include(joinpath(SUPPORT_ROOT, "environment", "NotebookConversion.jl"))
 

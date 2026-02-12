@@ -4,7 +4,7 @@ Guide to specifying probabilistic models in RxInfer using the `@model` macro, wi
 
 ## The @model Macro
 
-Models are defined using the `@model` macro:
+Models are defined using the `@model` macro. The macro transforms Julia code into a factor graph representation.
 
 ```julia
 # From Coin Toss example
@@ -30,8 +30,8 @@ result = infer(
 |--------|---------|---------|
 | `x ~ Distribution()` | Random variable | `θ ~ Beta(a, b)` |
 | `y[i] ~ ...` | Indexed variables | `y[i] ~ Bernoulli(θ)` |
-| `x := f(...)` | Deterministic | `s[i] := f(x[i], w[i])` |
-| `y .~ Distribution()` | Vectorized | `y .~ Normal(mean = a .* x .+ b, variance = 1.0)` |
+| `x := f(...)` | Deterministic transformation | `s[i] := f(x[i], w[i])` |
+| `y .~ Distribution()` | Vectorized/Broadcasted | `y .~ Normal(mean = a .* x .+ b, variance = 1.0)` |
 
 ### Parameter Naming
 
@@ -48,9 +48,11 @@ end
 y ~ Normal(mean = μ, precision = τ)  # precision = 1/variance
 ```
 
-## State Space Models
+## Advanced Patterns
 
-### Linear Gaussian SSM (Kalman Filter)
+### State Space Models (SSM)
+
+#### Linear Gaussian SSM (Kalman Filter)
 
 ```julia
 # From Kalman filtering example
@@ -64,23 +66,9 @@ y ~ Normal(mean = μ, precision = τ)  # precision = 1/variance
         x_prev = x[i]
     end
 end
-
-# Usage with matrix parameters
-θ = π / 35
-A = [ cos(θ) -sin(θ); sin(θ) cos(θ) ]
-B = diageye(2)
-Q = 25.0 * diageye(2)
-P = diageye(2)
-x0 = MvNormalMeanCovariance(zeros(2), 100.0 * diageye(2))
-
-result = infer(
-    model = rotate_ssm(x0=x0, A=A, B=B, P=P, Q=Q), 
-    data = (y = y,),
-    free_energy = true
-)
 ```
 
-### Hidden Markov Model
+#### Hidden Markov Model (HMM)
 
 ```julia
 # From HMM example
@@ -101,57 +89,94 @@ result = infer(
 end
 ```
 
-## Constraints (@constraints)
-
-Define factorization for variational inference:
+### Hierarchical Models
 
 ```julia
-# From HMM example
+# From Bayesian Linear Regression (partially pooled)
+@model function partially_pooled(patient_codes, weeks, data)
+    μ_α ~ Normal(mean = 0.0, var = 250000.0)
+    σ_α ~ Gamma(shape = 1.75, scale = 45.54)
+    
+    n_patients = length(unique(patient_codes))
+    local α
+    
+    for i in 1:n_patients
+        α[i] ~ Normal(mean = μ_α, precision = σ_α)
+    end
+    
+    for i in 1:length(patient_codes)
+        # Using hierarchical parameter α[patient_codes[i]]
+        y[i] ~ Normal(mean = α[patient_codes[i]] + β * weeks[i], precision = σ)
+    end
+end
+```
+
+## Meta Information (@meta)
+
+The `@meta` macro is crucial for handling nonlinear node approximations and custom rules.
+
+### defining Approximations
+
+For nonlinear deterministic nodes (like `y := f(x)`), exact inference is often impossible. You must specify an approximation method (e.g., Linearization, Unscented).
+
+```julia
+# From Kalman example with nonlinear transition
+function smooth_min(x, y)    
+    if x < y
+        return x + 1e-4 * y
+    else
+        return y + 1e-4 * x
+    end
+end
+
+# Specify approximation method
+min_meta = @meta begin 
+    smooth_min() -> Linearization()
+    # Or: smooth_min() -> Unscented(alpha=0.1, beta=2.0, kappa=0.0)
+end
+
+result = infer(
+    model = identification_problem(f=smooth_min, ...),
+    meta = min_meta,
+    ...
+)
+```
+
+## Constraints (@constraints)
+
+Define factorization assumptions for variational inference (VMP).
+
+```julia
+# Mean-Field (everything factorized)
+constraints = MeanField()
+
+# Structured Factorization
 @constraints function hidden_markov_model_constraints()
+    # Factorize parameters from states, but keep states and initial state joint
     q(s_0, s, A, B) = q(s_0, s)q(A)q(B)
 end
-
-# From Kalman identification problem
-constraints = @constraints begin 
-    q(x0, w0, x, w, τ_x, τ_w, τ_y, s) = q(x, x0, w, w0, s)q(τ_w)q(τ_x)q(τ_y)
-end
-
-# Mean-field shorthand
-constraints = MeanField()
 ```
 
 ## Initialization (@initialization)
 
-Set initial marginals/messages for VMP:
+Set initial marginals (priors for the variational posterior) or messages.
 
 ```julia
-# From HMM example
+# Marginal Initialization (standard)
 imarginals = @initialization begin
     q(A) = vague(DirichletCollection, (3, 3))
-    q(B) = vague(DirichletCollection, (3, 3)) 
     q(s) = vague(Categorical, 3)
 end
 
-# From Kalman example - message initialization
+# Message Initialization (for feedback loops/RNNs)
 init = @initialization begin
     μ(x) = xinit  # Vector of initial messages
-    μ(w) = winit
-    q(τ_x) = GammaShapeRate(a_x, b_x)
-    q(τ_w) = GammaShapeRate(a_w, b_w)
-    q(τ_y) = GammaShapeRate(a_y, b_y)
 end
-
-# Inline initialization
-results = infer(
-    model = linear_regression(), 
-    data  = (y = y_data, x = x_data), 
-    initialization = @initialization(μ(b) = NormalMeanVariance(0.0, 100.0))
-)
 ```
 
 ## Return Variables
 
-Control which posteriors are returned:
+Control which posteriors are returned to save memory.
 
 ```julia
 # Keep last iteration only
@@ -161,72 +186,18 @@ ireturnvars = (
     s = KeepLast()
 )
 
-# Alternative syntax
-returnvars = (a = KeepLast(), b = KeepLast())
-
-# Keep all iterations
-returnvars = KeepLast()  # For all variables
-```
-
-## Hierarchical Models
-
-```julia
-# From Bayesian Linear Regression (partially pooled)
-@model function partially_pooled(patient_codes, weeks, data)
-    μ_α ~ Normal(mean = 0.0, var = 250000.0)
-    μ_β ~ Normal(mean = 0.0, var = 9.0)
-    σ_α ~ Gamma(shape = 1.75, scale = 45.54)
-    σ_β ~ Gamma(shape = 1.75, scale = 1.36)
-
-    n_patients = length(unique(patient_codes))
-
-    local α
-    local β
-
-    for i in 1:n_patients
-        α[i] ~ Normal(mean = μ_α, precision = σ_α)
-        β[i] ~ Normal(mean = μ_β, precision = σ_β)
-    end
-
-    σ ~ Gamma(shape = 1.75, scale = 45.54)
-    
-    local FVC_est
-
-    for i in 1:length(patient_codes)
-        FVC_est[i] ~ α[patient_codes[i]] + β[patient_codes[i]] * weeks[i]
-        data[i] ~ Normal(mean = FVC_est[i], precision = σ)
-    end
-end
-```
-
-## Deterministic Transformations
-
-```julia
-# From Kalman identification problem
-@model function identification_problem(f, y, ...)
-    x[i] ~ Normal(mean = x_i_min, precision = τ_x)
-    w[i] ~ Normal(mean = w_i_min, precision = τ_w)
-    s[i] := f(x[i], w[i])  # Deterministic node
-    y[i] ~ Normal(mean = s[i], precision = τ_y)
-end
-```
-
-## Meta Information (@meta)
-
-For nonlinear functions requiring approximation:
-
-```julia
-# From Kalman example with smooth_min
-min_meta = @meta begin 
-    smooth_min() -> Linearization()
-end
-
-result = infer(
-    model = identification_problem(f=smooth_min, ...),
-    meta = min_meta,
-    ...
+# Keep specific history
+ireturnvars = (
+    x = KeepEach(),  # Keep all iterations
 )
 ```
+
+## Debugging Models
+
+1. **Check Graph Structure**: Use `RxInfer.GraphPPL.get_model_graph(model)` to inspect the generated graph.
+2. **Dimension Mismatch**: Ensure `A`, `B`, and state vectors have compatible dimensions in `MvNormal` nodes.
+3. **Undefined Variables**: Ensure all variables on the RHS of `~` are defined or passed as arguments.
+4. **Constraints**: If inference fails or is terrible, check if your `@constraints` are too restrictive (e.g., breaking dependencies that *must* exist).
 
 ## Related Examples
 

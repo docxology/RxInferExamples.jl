@@ -4,146 +4,114 @@ Built-in and custom factor nodes in RxInfer.jl, with real syntax from working ex
 
 ## Stochastic Nodes
 
-### Continuous
+RxInfer supports a wide range of distributions.
 
-| Node | Syntax | From Example |
-|------|--------|--------------|
-| Normal | `x ~ Normal(mean=μ, variance=σ²)` | Linear Regression |
-| Normal (precision) | `x ~ Normal(mean=μ, precision=τ)` | Kalman |
-| MvNormal | `x ~ MvNormalMeanCovariance(μ, Σ)` | Kalman |
-| Gamma | `τ ~ Gamma(shape=α, rate=β)` | Linear Regression |
-| Beta | `θ ~ Beta(a, b)` | Coin Toss |
-| InverseGamma | `s ~ InverseGamma(α, β)` | Linear Regression |
-| InverseWishart | `W ~ InverseWishart(ν, S)` | Multivariate Regression |
+### Univariate Continuous
+
+| Node | Canonical Parameters | Syntax | Usage Pattern |
+|------|----------------------|--------|---------------|
+| **Normal** | Mean, Variance | `Normal(mean=μ, variance=σ²)` | General noise, priors |
+| **Normal** | Mean, Precision | `Normal(mean=μ, precision=τ)` | Conjugate to Gamma precision |
+| **Gamma** | Shape, Rate | `Gamma(shape=α, rate=β)` | Precision priors |
+| **Beta** | Alpha, Beta | `Beta(a, b)` | Probability priors (Bernoulli) |
+| **InverseGamma** | Shape, Scale | `InverseGamma(shape=α, scale=β)` | Variance priors |
+
+### Multivariate Continuous
+
+| Node | Canonical Parameters | Syntax | Usage Pattern |
+|------|----------------------|--------|---------------|
+| **MvNormal** | Mean, Covariance | `MvNormalMeanCovariance(μ, Σ)` | Kalman State Transition |
+| **MvNormal** | Mean, Precision | `MvNormalMeanPrecision(μ, Λ)` | Conjugate to Wishart |
+| **Dirichlet** | Alpha (vector) | `Dirichlet(α)` | Categorical priors |
+| **InverseWishart** | D.o.F, Scale Matrix | `InverseWishart(ν, S)` | Covariance matrix priors |
 
 ### Discrete
 
-| Node | Syntax | From Example |
-|------|--------|--------------|
-| Bernoulli | `y ~ Bernoulli(θ)` | Coin Toss |
-| Categorical | `s ~ Categorical(π)` | HMM |
-| DiscreteTransition | `s[t] ~ DiscreteTransition(s_prev, A)` | HMM, POMDP |
-| DirichletCollection | `A ~ DirichletCollection(M)` | HMM |
+| Node | Canonical Parameters | Syntax | Usage Pattern |
+|------|----------------------|--------|---------------|
+| **Bernoulli** | p | `Bernoulli(θ)` | Binary outcomes |
+| **Categorical** | p (vector) | `Categorical(p)` | State variables in HMM |
+| **DiscreteTransition** | x_prev, Transition Matrix | `DiscreteTransition(x_prev, A)` | HMM transitions |
+| **Binomial** | n, p | `Binomial(n, p)` | Count data |
 
-## Deterministic Nodes
+## Specialized Nodes
 
-```julia
-# From Kalman identification example
-s[i] := f(x[i], w[i])  # Deterministic transformation
+### DiscreteTransition
 
-# Arithmetic operations
-y .~ Normal(mean = a .* x .+ b, variance = 1.0)
-
-# From Hierarchical Regression
-FVC_est[i] ~ α[patient_codes[i]] + β[patient_codes[i]] * weeks[i]
-```
-
-## DiscreteTransition Node
-
-The `DiscreteTransition` node handles discrete state transitions:
+The `DiscreteTransition` node is essential for HMMs and POMDPs. It represents a state transition $P(x_t | x_{t-1})$.
 
 ```julia
-# From HMM - 2D transition (state-to-state)
-s[t] ~ DiscreteTransition(s_prev, A)   # A is transition matrix
-x[t] ~ DiscreteTransition(s[t], B)     # B is emission matrix
+# 2D Transition (Standard HMM)
+# s[t] depends on s[t-1] and matrix A
+s[t] ~ DiscreteTransition(s_prev, A)
 
-# From POMDP - 3D transition (state × action → state)
+# 3D Transition (Control/Action dependent)
+# current_state depends on previous_state, Transition Tensor B, and action/control
 current_state ~ DiscreteTransition(previous_state, B, previous_control)
 ```
 
-## DirichletCollection Node
+### DirichletCollection
 
-For learning transition matrices:
+Used for learning transition matrices row-by-row. It creates a collection of independent Dirichlet distributions, one for each row of the matrix.
 
 ```julia
-# From HMM
-A ~ DirichletCollection(ones(3,3))  # Uniform prior
+# Prior for a 3x3 transition matrix
+# Initialize with uniform prior (ones)
+A ~ DirichletCollection(ones(3,3))
+
+# Initialize with strong diagonal preference (sticky HMM)
 B ~ DirichletCollection([ 10.0 1.0 1.0; 
                           1.0 10.0 1.0; 
-                          1.0 1.0 10.0 ])  # Informative prior
+                          1.0 1.0 10.0 ])
+```
+
+## Deterministic Nodes
+
+Deterministic nodes perform fixed calculations variables.
+
+```julia
+# Arithmetic
+y .~ Normal(mean = a .* x .+ b, variance = 1.0)
+
+# Custom Functions
+s[i] := f(x[i], w[i])
+
+# Logical/Switching
+z[t] := switch_logic(modality[t], visual_input[t], auditory_input[t])
 ```
 
 ## Vectorized Operations
 
-```julia
-# Dot-broadcast for multiple observations
-y .~ Normal(mean = a .* x .+ b, variance = 1.0)
+Dot-syntax (`.~`) vs Loop syntax.
 
-# With covariance matrix
-y .~ MvNormal(mean = x .* a .+ b, covariance = W)
+```julia
+# Loop (Explicit)
+for i in 1:N
+    y[i] ~ Normal(mean = x[i], variance = 1.0)
+end
+
+# Vectorized (Compact, often optimized)
+y .~ Normal(mean = x, variance = 1.0)
 ```
 
 ## Meta for Nonlinear Nodes
 
+When using deterministic nodes that are nonlinear (non-conjugate), you must specify how to approximate messages.
+
 ```julia
-# From Kalman example - custom nonlinear function
-function smooth_min(x, y)    
-    if x < y
-        return x + 1e-4 * y
-    else
-        return y + 1e-4 * x
-    end
+# Define function
+function nonlinear_transition(x)
+    return x^2 + sin(x)
 end
 
-# Specify approximation method
-min_meta = @meta begin 
-    smooth_min() -> Linearization()
-end
-
-result = infer(
-    model = model(f=smooth_min),
-    meta = min_meta,
-    ...
-)
-```
-
-## Accessing Node Statistics
-
-```julia
-# From HMM - get probability vectors
-ReactiveMP.probvec.(result.posteriors[:s])
-
-# Most likely discrete state
-argmax.(ReactiveMP.probvec.(result.posteriors[:s]))
-
-# From Linear Regression
-mean(result.posteriors[:A])  # Matrix mean
-```
-
-## Custom Message Rules
-
-```julia
-# From Linear Regression - custom call_rule
-FVC_predicted = broadcast(results.posteriors[:FVC_est], Ref(results.posteriors[:σ])) do f, s
-    return @call_rule NormalMeanPrecision(:out, Marginalisation) (m_μ = f, q_τ = s)
+# Define approximation
+meta = @meta begin
+    nonlinear_transition() -> Linearization() # Taylor expansion
 end
 ```
 
-## Common Patterns
+Available approximations:
 
-### Linear Transformation
-```julia
-y ~ Normal(mean = a * x + b, variance = σ²)
-```
-
-### Gaussian Process Observation
-```julia
-x[i] ~ MvNormalMeanCovariance(A * x_prev, P)
-y[i] ~ MvNormalMeanCovariance(B * x[i], Q)
-```
-
-### Hierarchical Prior
-```julia
-μ_α ~ Normal(mean = 0.0, var = 250000.0)
-σ_α ~ Gamma(shape = 1.75, scale = 45.54)
-for i in 1:n_patients
-    α[i] ~ Normal(mean = μ_α, precision = σ_α)
-end
-```
-
-## Related Examples
-
-- `scripts/Basic Examples/Coin Toss Model/` - Beta, Bernoulli
-- `scripts/Basic Examples/Hidden Markov Model/` - DiscreteTransition, DirichletCollection
-- `scripts/Basic Examples/Kalman filtering and smoothing/` - MvNormal, Gamma
-- `scripts/Basic Examples/Bayesian Linear Regression/` - Hierarchical structures
+- `Linearization()`: First-order Taylor expansion around the mean (EKF-like).
+- `Unscented(alpha=..., beta=..., kappa=...)`: Unscented Transform (UKF-like).
+- `CVI()`: Conjugate Variational Inference (limited support).

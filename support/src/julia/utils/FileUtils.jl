@@ -11,17 +11,30 @@ Provides common file operations for scripts and modules.
 """
 module FileUtils
 
-export ensure_directory, copy_if_newer, find_files, safe_write
+export ensure_directory, ensure_parent_directory, copy_if_newer, find_files, safe_write
 
 """
     ensure_directory(path::AbstractString) -> String
 
 Create directory and all parent directories if they don't exist.
-Returns the path.
+Returns the absolute path.
 """
 function ensure_directory(path::AbstractString)::String
-    mkpath(path)
-    return path
+    abs_path = abspath(path)
+    mkpath(abs_path)
+    return abs_path
+end
+
+"""
+    ensure_parent_directory(path::AbstractString) -> String
+
+Ensure the parent directory of a file exists.
+Returns the absolute path to the parent.
+"""
+function ensure_parent_directory(path::AbstractString)::String
+    parent = dirname(abspath(path))
+    mkpath(parent)
+    return parent
 end
 
 """
@@ -37,9 +50,9 @@ function copy_if_newer(source::AbstractString, target::AbstractString; quiet::Bo
     end
     
     if !isfile(target) || mtime(source) > mtime(target)
-        ensure_directory(dirname(target))
+        ensure_parent_directory(target)
         cp(source, target, force=true)
-        quiet || println("Copied: $source → $target")
+        quiet || println("ℹ️  Copied: $source → $target")
         return true
     end
     return false
@@ -48,13 +61,14 @@ end
 """
     find_files(directory::AbstractString, pattern::Regex; recursive::Bool=true) -> Vector{String}
 
-Find all files in directory matching the pattern.
+Find all files in directory matching the pattern. Returns absolute paths.
 """
 function find_files(directory::AbstractString, pattern::Regex; recursive::Bool=true)::Vector{String}
     matches = String[]
+    abs_dir = abspath(directory)
     
     if recursive
-        for (root, dirs, files) in walkdir(directory)
+        for (root, dirs, files) in walkdir(abs_dir)
             for f in files
                 if occursin(pattern, f)
                     push!(matches, joinpath(root, f))
@@ -62,9 +76,9 @@ function find_files(directory::AbstractString, pattern::Regex; recursive::Bool=t
             end
         end
     else
-        for f in readdir(directory)
-            if isfile(joinpath(directory, f)) && occursin(pattern, f)
-                push!(matches, joinpath(directory, f))
+        for f in readdir(abs_dir)
+            if isfile(joinpath(abs_dir, f)) && occursin(pattern, f)
+                push!(matches, joinpath(abs_dir, f))
             end
         end
     end
@@ -78,14 +92,15 @@ end
 Write content to file atomically (write to temp, then rename).
 """
 function safe_write(path::AbstractString, content::AbstractString)
-    temp_path = path * ".tmp"
-    ensure_directory(dirname(path))
+    abs_path = abspath(path)
+    temp_path = abs_path * ".tmp"
+    ensure_parent_directory(abs_path)
     
     open(temp_path, "w") do io
         write(io, content)
     end
     
-    mv(temp_path, path, force=true)
+    mv(temp_path, abs_path, force=true)
     return nothing
 end
 
