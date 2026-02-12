@@ -43,21 +43,27 @@ end
 
 Log an informational message.
 """
-log_info(logger, msg) = logger(msg, level="INFO", emoji="ℹ️")
+function log_info(logger, msg)
+    logger(msg, level="INFO", emoji="ℹ️")
+end
 
 """
     log_warn(logger, msg)
 
 Log a warning message.
 """
-log_warn(logger, msg) = logger(msg, level="WARN", emoji="⚠️")
+function log_warn(logger, msg)
+    logger(msg, level="WARN", emoji="⚠️")
+end
 
 """
     log_error(logger, msg)
 
 Log an error message.
 """
-log_error(logger, msg) = logger(msg, level="ERROR", emoji="❌")
+function log_error(logger, msg)
+    logger(msg, level="ERROR", emoji="❌")
+end
 
 """
     log_section(logger, name)

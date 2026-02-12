@@ -1,0 +1,65 @@
+╔══════════════════════════════════════════════════════════╗
+║ EXECUTION LOG                                            ║
+╚══════════════════════════════════════════════════════════╝
+Date:      2026-02-12 11:46:38
+Julia:     1.12.3
+OS:        Darwin
+Threads:   1
+Config:    /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/config.toml
+Output:    /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/output
+Seed:      42
+────────────────────────────────────────────────────────────
+
+[11:46:38] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:38] 📌 [INFO] SECTION: Coin Toss Model Analysis
+[11:46:38] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:38] ⚙️ [INFO] Active Configuration:
+[11:46:38]    [INFO]   inference: Dict{String, Any}("iterations" => 100)
+[11:46:38]    [INFO]   output: Dict{String, Any}("save_plots" => true, "log_level" => "info", "animation_fps" => 10, "save_report" => true, "save_animation" => true, "directory" => "output")
+[11:46:38]    [INFO]   model: Dict{String, Any}("prior_b" => 8.0, "rng_seed" => 42, "n_samples" => 500, "prior_a" => 4.0, "theta_real" => 0.75)
+[11:46:38]    [INFO]   validation: Dict{String, Any}("error_threshold" => 0.05)
+[11:46:38] ℹ️ [INFO] Initializing...
+[11:46:38] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:38] 📌 [INFO] SECTION: Data Generation
+[11:46:38] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:38] ℹ️ [INFO] Generated 500 samples.
+[11:46:38] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:38] 📌 [INFO] SECTION: Batch Inference
+[11:46:38] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:44] ℹ️ [INFO] Batch inference complete.
+[11:46:44] ℹ️ [INFO] Posterior: Mean=0.7363
+[11:46:44] ℹ️ [INFO] Final Free Energy: 289.5483 nats
+[11:46:44] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:44] 📌 [INFO] SECTION: Validation
+[11:46:44] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:44] ℹ️ [INFO] 
+────────────────────────────────────────
+[11:46:44] ✅ [INFO] VALIDATION SUCCESS
+[11:46:44] 🔹 [INFO] PASS: Estimation Error = 0.0137 <= 0.05
+[11:46:44] 🔹 [INFO] PASS: Posterior Uncertainty = 0.0195 <= 0.1
+[11:46:44] ℹ️ [INFO] ────────────────────────────────────────
+
+[11:46:44] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:44] 📌 [INFO] SECTION: Visualization
+[11:46:44] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:46] ℹ️ [INFO] Static plot saved.
+[11:46:46] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:47] 📌 [INFO] SECTION: Animation Generation
+[11:46:47] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:47] ℹ️ [INFO] Running online inference for animation...
+[11:46:50] ℹ️ [INFO] Animation saved to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/output/posterior_animation.gif
+[11:46:50] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:50] 📌 [INFO] SECTION: Reporting
+[11:46:50] ℹ️ [INFO] ════════════════════════════════════════
+[11:46:50] ℹ️ [INFO] Report saved to: /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/output/analysis_report.txt
+[11:46:50] ℹ️ [INFO] 
+════════════════════════════════════════
+[11:46:50] 📌 [INFO] SECTION: Execution Finished Successfully
+[11:46:50] ℹ️ [INFO] ════════════════════════════════════════

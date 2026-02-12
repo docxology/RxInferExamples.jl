@@ -1,0 +1,19 @@
+[model]
+rng_seed = 123
+n_samples = 50
+theta_real = 0.6
+prior_a = 2.0
+prior_b = 2.0
+
+[inference]
+iterations = 10
+
+[output]
+directory = "test_output"
+save_plots = false
+save_animation = false
+save_report = false
+log_level = "warn"
+
+[validation]
+error_threshold = 0.2

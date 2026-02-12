@@ -1,0 +1,49 @@
+╔══════════════════════════════════════════════════════════╗
+║ EXECUTION LOG                                            ║
+╚══════════════════════════════════════════════════════════╝
+Date:      2026-02-12 09:48:26
+Julia:     1.12.3
+OS:        Darwin
+Threads:   1
+Config:    /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/test/test_config.toml
+Output:    /Users/4d/Documents/GitHub/RxInferExamples.jl/scripts/Basic Examples/Coin Toss Model/test_output
+Seed:      42
+────────────────────────────────────────────────────────────
+
+[09:48:26] ℹ️ [INFO] 
+════════════════════════════════════════
+[09:48:26] 📌 [INFO] SECTION: Coin Toss Model Analysis
+[09:48:26] ℹ️ [INFO] ════════════════════════════════════════
+[09:48:26] ⚙️ [INFO] Active Configuration:
+[09:48:26]    [INFO]   inference: Dict{String, Any}("iterations" => 10)
+[09:48:26]    [INFO]   output: Dict{String, Any}("save_plots" => false, "log_level" => "warn", "save_report" => false, "save_animation" => false, "directory" => "test_output")
+[09:48:26]    [INFO]   model: Dict{String, Any}("prior_b" => 2.0, "rng_seed" => 123, "n_samples" => 50, "prior_a" => 2.0, "theta_real" => 0.6)
+[09:48:26]    [INFO]   validation: Dict{String, Any}("error_threshold" => 0.2)
+[09:48:26] ℹ️ [INFO] Initializing...
+[09:48:26] ℹ️ [INFO] 
+════════════════════════════════════════
+[09:48:26] 📌 [INFO] SECTION: Data Generation
+[09:48:26] ℹ️ [INFO] ════════════════════════════════════════
+[09:48:26] ℹ️ [INFO] Generated 50 samples.
+[09:48:26] ℹ️ [INFO] 
+════════════════════════════════════════
+[09:48:26] 📌 [INFO] SECTION: Batch Inference
+[09:48:26] ℹ️ [INFO] ════════════════════════════════════════
+[09:48:32] ℹ️ [INFO] Batch inference complete.
+[09:48:32] ℹ️ [INFO] Posterior: Mean=0.6481
+[09:48:32] ℹ️ [INFO] Final Free Energy: 33.5631 nats
+[09:48:32] ℹ️ [INFO] 
+════════════════════════════════════════
+[09:48:32] 📌 [INFO] SECTION: Validation
+[09:48:32] ℹ️ [INFO] ════════════════════════════════════════
+[09:48:32] ℹ️ [INFO] 
+────────────────────────────────────────
+[09:48:32] ✅ [INFO] VALIDATION SUCCESS
+[09:48:32] 🔹 [INFO] PASS: Estimation Error = 0.0481 <= 0.2
+[09:48:32] 🔹 [INFO] PASS: Posterior Uncertainty = 0.0644 <= 0.1
+[09:48:32] ℹ️ [INFO] ────────────────────────────────────────
+
+[09:48:32] ℹ️ [INFO] 
+════════════════════════════════════════
+[09:48:32] 📌 [INFO] SECTION: Execution Finished Successfully
+[09:48:32] ℹ️ [INFO] ════════════════════════════════════════

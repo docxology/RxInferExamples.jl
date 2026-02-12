@@ -1,0 +1,26 @@
+Coin Toss Model Analysis Report
+===============================
+
+## Configuration
+| Parameter | Value |
+| --------- | ----- |
+| Seed      | N/A   |
+| Samples   | 500   |
+| Real θ    | 0.75  |
+| Prior a   | 4.0   |
+| Prior b   | 8.0   |
+
+## Results
+| Metric            | Value    |
+| ----------------- | -------- |
+| Posterior Mean    | 0.7363   |
+| Posterior Std     | 0.0195   |
+| Absolute Error    | 0.0137   |
+| Bethe Free Energy | 289.5483 |
+
+## Validation
+**Overall Status**: ✅ PASS
+
+### Messages
+- PASS: Estimation Error = 0.0137 <= 0.05
+- PASS: Posterior Uncertainty = 0.0195 <= 0.1

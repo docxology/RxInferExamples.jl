@@ -1,0 +1,21 @@
+[model]
+rng_seed = 42
+n_samples = 500
+theta_real = 0.75
+prior_a = 4.0
+prior_b = 8.0
+
+[inference]
+# No specific inference settings yet, but placeholders for future use
+iterations = 100
+
+[output]
+directory = "output"
+save_plots = true
+save_animation = true
+save_report = true
+animation_fps = 10
+log_level = "info"
+
+[validation]
+error_threshold = 0.05
